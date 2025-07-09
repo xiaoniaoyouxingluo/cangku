@@ -1,0 +1,27 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1555844252	Play_BGMSwitches			\BGM\Play_BGMSwitches	
+	3083775054	Stop_BGMSwitches			\BGM\Stop_BGMSwitches	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3103015060	MusicStates			\BGMSwitch\MusicStates	
+
+State	ID	Name	State Group			Notes
+	165532582	NormalBattle	MusicStates			
+	251412225	Shop	MusicStates			
+	748895195	None	MusicStates			
+	1397260774	GameClear	MusicStates			
+	1522554916	BossBattle	MusicStates			
+	3161908922	Main	MusicStates			
+	3705726509	TItle	MusicStates			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	336693679	NormalBattle_Main	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\NormalBattle_Main_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\NormalBattle_1\NormalBattle_Main\NormalBattle_Main		22566720
+	364671284	Main_1	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\Main_1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\MainMap\Main_1\Main_1		6144020
+	403213548	BossBattle_Pre	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\BossBattle_Pre_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\BossBattle_1\BossBattle_Pre\BossBattle_Pre		2644728
+	453063567	Shop	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\Shop_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\Shop\Shop\Shop		6411016
+	638273329	Main2	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\Main2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\MainMap\Main2\Main2		31043060
+	642679518	Title_1	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\Title_1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\Title\Title_1\Title_1		9215996
+	875774309	NormalBattle_Pre	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\NormalBattle_Pre_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\NormalBattle_1\NormalBattle_Pre\NormalBattle_Pre		254624
+	987079758	BossBattle_Main	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\BossBattle_Main_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\BossBattle_1\BossBattle_Main\BossBattle_Main		8193864
+	1048029901	GameClear	D:\2025Project\2025CGJ\Wwise\2025CGJ\.cache\Windows\SFX\BGM\GameClear_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\BGMSwitches\GameClear\GameClear\GameClear		10633944
+

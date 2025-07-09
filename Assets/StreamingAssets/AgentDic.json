@@ -1,0 +1,19 @@
+{
+	"打火机":{"name":"打火机","tips":"穿透：一次攻击一整行敌人","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":3},
+	"罐头":{"name":"罐头","tips":"装甲4:  受到的伤害减少4","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":2},
+	"面包机":{"name":"面包机","tips":"一次攻击2行敌人","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":9},
+	"闹钟":{"name":"闹钟","tips":"本行的队友伤害x1.5","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":11},
+	"叉子":{"name":"叉子","tips":"","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":1},
+	"剪刀":{"name":"剪刀","tips":"对有装甲的敌人造成双倍伤害","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":4},
+	"迷你风扇":{"name":"迷你风扇","tips":"本行的队友增加5攻击力,穿透","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":1},
+	"杯子":{"name":"杯子","tips":"","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":1},
+	"工具箱":{"name":"工具箱","tips":"每回合恢复血量最低的队友30生命值","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":9},
+	"扳手":{"name":"扳手","tips":"每回合恢复本行所有队友8生命值","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":3},
+	"棒球":{"name":"棒球","tips":"亡语：本行最前方的敌人造成40伤害","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":4},
+	"盒子":{"name":"盒子","tips":"每回合开始给予所有队友10格挡","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":8},
+	"正电池":{"name":"正电池","tips":"每回合开始，所有队友+5/5","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":6},
+	"负电池":{"name":"负电池","tips":"本行队友获得+25攻击力","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":6},
+	"杀虫剂":{"name":"杀虫剂","tips":"对无护甲非boss敌人秒杀","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":7},
+	"水瓶":{"name":"水瓶","tips":"格挡50，装甲10","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":10},
+	"卷纸":{"name":"卷纸","tips":"格挡5","sellingpPrice":1,"recyclingPrice":1,"weight":1,"energy":2}
+}
