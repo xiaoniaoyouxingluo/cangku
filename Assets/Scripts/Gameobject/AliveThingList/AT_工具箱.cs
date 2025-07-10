@@ -10,7 +10,7 @@ public class AT_工具箱 : BasicAliveThing
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_工具箱_Attack");
         //Sfx_Battle_Chequers_Chest_Attack
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Chest_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Chest_Attack");
         base.Act(code);
     }
 

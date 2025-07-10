@@ -212,7 +212,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253207554112866023}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 8248760190986621622}
   - component: {fileID: 1380850357381655189}
   m_Layer: 5
-  m_Name: Image
+  m_Name: "\u6559\u7A0B1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1184,6 @@ GameObject:
   - component: {fileID: 2176012070761561956}
   - component: {fileID: 8970659223317407933}
   - component: {fileID: 9018625604371388330}
-  - component: {fileID: 6577494149653446721}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1294,10 +1293,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6577494149653446721}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: hide
-        m_Mode: 3
+      - m_Target: {fileID: 1436771321557813128}
+        m_TargetAssemblyTypeName: StartPanel, Assembly-CSharp
+        m_MethodName: "\u4E0B\u4E00\u9875\u6559\u7A0B"
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1306,46 +1305,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6577494149653446721}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: hide
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6577494149653446721}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: show
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6577494149653446721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961854655418094354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bf652209461ac49bdcc8ea27091977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scd:
-  - {fileID: 3824537567585672008}
-  - {fileID: 9113135872019724242}
-  - {fileID: 1205082693216122268}
 --- !u!1 &3641163793976502613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,8 +2215,6 @@ GameObject:
   - component: {fileID: 5278798333454086926}
   - component: {fileID: 5278798333454086925}
   - component: {fileID: 5278798333454086924}
-  - component: {fileID: 5278798333454086923}
-  - component: {fileID: 828920303232611950}
   m_Layer: 5
   m_Name: Button_introcue
   m_TagString: Untagged
@@ -2367,47 +2324,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5278798333454086925}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5278798333454086923}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: show
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "\u5267\u60C5"
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5278798333454086923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5278798333454086921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bf652209461ac49bdcc8ea27091977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scd:
-  - {fileID: 3824537567585672008}
---- !u!114 &828920303232611950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5278798333454086921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0619811921a1e314581ba339f2bec1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hoverSoundName: UI_Highlight
-  _clickSoundName: UI_GeneralClick
+      m_Calls: []
 --- !u!1 &5278798334090728428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2645,6 @@ GameObject:
   - component: {fileID: 2437348414309601910}
   - component: {fileID: 4616583335182824117}
   - component: {fileID: 5872628010056754932}
-  - component: {fileID: 5628331311095808045}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2838,10 +2754,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5628331311095808045}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: hide
-        m_Mode: 3
+      - m_Target: {fileID: 1436771321557813128}
+        m_TargetAssemblyTypeName: StartPanel, Assembly-CSharp
+        m_MethodName: "\u4E0B\u4E00\u9875\u6559\u7A0B"
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2850,33 +2766,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5628331311095808045}
-        m_TargetAssemblyTypeName: Button_changeScd, Assembly-CSharp
-        m_MethodName: show
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5628331311095808045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9035726382570058294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bf652209461ac49bdcc8ea27091977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scd:
-  - {fileID: 1205082693216122268}
-  - {fileID: 9113135872019724242}
 --- !u!1 &9113135872019724242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2778,7 @@ GameObject:
   - component: {fileID: 1613479287508073380}
   - component: {fileID: 4184033159721231689}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: "\u6559\u7A0B2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

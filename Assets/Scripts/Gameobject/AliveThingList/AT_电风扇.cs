@@ -11,7 +11,7 @@ public class AT_电风扇 : BasicAliveThing
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_电风扇_Attack");
         //Sfx_Battle_Chequers_Fan_Attack
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Fan_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Fan_Attack");
         base.Act(code);
     }
 

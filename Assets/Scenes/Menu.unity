@@ -217,9 +217,8 @@ GameObject:
   - component: {fileID: 608255950}
   - component: {fileID: 608255949}
   - component: {fileID: 608255951}
-  - component: {fileID: 608255952}
   m_Layer: 0
-  m_Name: idk
+  m_Name: BKMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,25 +343,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 608255948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5765fbbd6d24064f8fea0272faf9a13, type: 3}
+  m_Script: {fileID: 11500000, guid: 41c0676d40b11da4d8378e4ea6630301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipList:
-  - {fileID: 8300000, guid: abf340888a3603747b2b37260cd87eeb, type: 3}
-  - {fileID: 8300000, guid: 5d894fdba76c65c49a9c6c2b6a84d403, type: 3}
---- !u!114 &608255952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608255948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145d97b753e5f234ab32e397d2477340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: Music_Volume
 --- !u!1 &629322252
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d592f4f47bdba544a4c0eac11fe9e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: abf340888a3603747b2b37260cd87eeb, type: 3}
+  - {fileID: 8300000, guid: 5d894fdba76c65c49a9c6c2b6a84d403, type: 3}
 --- !u!4 &1731997730
 Transform:
   m_ObjectHideFlags: 0

@@ -81,7 +81,7 @@ public class HealthMgr : MonoBehaviour
             nowHealth = Health;
 
         }
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Buff_Heal");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Buff_Heal");
         GameObjectPool.Instance.CreateGameObject(Resources.Load<GameObject>("Prefabs/SE/heal_add_00000"),transform.position);
     }
 }

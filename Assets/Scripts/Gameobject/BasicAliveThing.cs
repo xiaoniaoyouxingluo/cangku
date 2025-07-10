@@ -46,7 +46,7 @@ public class BasicAliveThing : MonoBehaviour
         if (GetComponent<HealthMgr>().isDead && !becomeDead)
         {
             becomeDead = true;
-            AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Dead");
+            AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Dead");
             OnDie();
         }
         if (becomeDead)

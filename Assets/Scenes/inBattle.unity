@@ -2947,7 +2947,7 @@ GameObject:
   - component: {fileID: 740060107}
   - component: {fileID: 740060106}
   m_Layer: 0
-  m_Name: idk
+  m_Name: BKMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3072,10 +3072,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 740060103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145d97b753e5f234ab32e397d2477340, type: 3}
+  m_Script: {fileID: 11500000, guid: 41c0676d40b11da4d8378e4ea6630301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Music_Volume
 --- !u!114 &740060107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9215,7 +9214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6417358587776617451
 MonoBehaviour:
   m_ObjectHideFlags: 0

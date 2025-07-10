@@ -44,7 +44,7 @@ public class inBattleManager : MonoBehaviour
         {
             return;
         }
-        AudioManager.install.PlaySoundEffectsByName("UI_GeneralClick");
+        AudioManager.Instance.PlaySoundEffectsByName("UI_GeneralClick");
         if(pp当前选择砖块 != null && p != pp当前选择砖块)
         {
             var middle = pp当前选择砖块.此地物体;

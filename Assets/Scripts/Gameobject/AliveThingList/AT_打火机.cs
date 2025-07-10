@@ -10,7 +10,7 @@ public class AT_打火机 : BasicAliveThing
 
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_打火机_Shoot");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Lighter_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Lighter_Attack");
         base.Act(code);
     }
 

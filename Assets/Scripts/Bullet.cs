@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
                 collision.GetComponent<HealthMgr>().HealthLess((int)d, parentObj.gameObject, Œﬁ ”∑¿”˘);
                 GameObjectPool.Instance.CreateGameObject(hitTX, transform.position);
                 CameraShake.Instance.TriggerShake(ShakeC.x, ShakeC.y);
-                AudioManager.install.PlaySoundEffectsByName(hitSound);
+                AudioManager.Instance.PlaySoundEffectsByName(hitSound);
                 if (!¥©Õ∏)
                 {
                     GameObjectPool.Instance.AddObject(gameObject);

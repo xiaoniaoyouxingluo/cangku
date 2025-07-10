@@ -7,7 +7,7 @@ public class AT_剪刀 : BasicAliveThing
     public override void Act(int code)
     {
         GetComponent<Animator>().Play("AT_剪刀_Attack");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Scissors_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Scissors_Attack");
         base.Act(code);
     }
 

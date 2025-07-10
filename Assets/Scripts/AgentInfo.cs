@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 家具数据结构类
+/// </summary>
 [System.Serializable]
 public class AgentInfo
 {

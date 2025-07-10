@@ -111,7 +111,7 @@ public class PutThingPanel : MonoBehaviour
                     inBattleManager.Instance.GhostNum -= data选中.Cost;
                     选中物品 = null;
                     data选中 = null;
-                    AudioManager.install.PlaySoundEffectsByName("UI_MoveChequers_Set");
+                    AudioManager.Instance.PlaySoundEffectsByName("UI_MoveChequers_Set");
                 }
             }
             else
@@ -132,7 +132,7 @@ public class PutThingPanel : MonoBehaviour
     {
         if(data.Name != "空" && data.物体 != null && 选中物品 == null && data.Cost <= inBattleManager.Instance.GhostNum && !inBattleManager.Instance.isActing)
         {
-            AudioManager.install.PlaySoundEffectsByName("UI_MoveChequers_Pick");
+            AudioManager.Instance.PlaySoundEffectsByName("UI_MoveChequers_Pick");
             选中物品 = GameObjectPool.Instance.CreateGameObject(data.物体, Camera.main.ScreenToWorldPoint(Input.mousePosition));
             data选中 = data;
         }

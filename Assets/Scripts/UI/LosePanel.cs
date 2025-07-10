@@ -10,7 +10,7 @@ public class LosePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_GameLose");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_GameLose");
     }
     private void Update()
     {

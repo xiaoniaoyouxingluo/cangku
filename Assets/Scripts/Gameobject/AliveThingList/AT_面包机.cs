@@ -7,7 +7,7 @@ public class AT_面包机 : BasicAliveThing
     public override void Act(int code)
     {
         GetComponent<Animator>().Play("AT_面包机_Attack");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_BreadMaker_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_BreadMaker_Attack");
         base.Act(code);
     }
 

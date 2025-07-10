@@ -52,7 +52,7 @@ public class Boss_冰箱 : BasicAliveThing
     public void Create()
     {
         //Sfx_Battle_Buff_AP
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Buff_AP");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Buff_AP");
         for (int i = 0;i < aa地皮.Count;i++)
         {
             var a = aa地皮[i];
@@ -87,7 +87,7 @@ public class Boss_冰箱 : BasicAliveThing
     public void Attack()
     {
         //Sfx_Battle_GeneralHit
-        AudioManager.install.PlaySoundEffectsByName("wep_peashooter_peacannon_core_mono_ice");
+        AudioManager.Instance.PlaySoundEffectsByName("wep_peashooter_peacannon_core_mono_ice");
         var e = getLineObj(1);
         int ran = Random.Range(0, 100);
         if(ran < 50)
@@ -107,7 +107,7 @@ public class Boss_冰箱 : BasicAliveThing
     public void Ice()
     {
         //Explosion_IceShroom_CoreClose
-        AudioManager.install.PlaySoundEffectsByName("Explosion_IceShroom_CoreClose");
+        AudioManager.Instance.PlaySoundEffectsByName("Explosion_IceShroom_CoreClose");
         foreach (var g in inBattleManager.Instance.getAllObj(TeamType.Team1))
         {
             if (g != null)

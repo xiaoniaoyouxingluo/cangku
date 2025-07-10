@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 8276727543008278596}
   - component: {fileID: 6797932895752419338}
   m_Layer: 5
-  m_Name: Button_Close
+  m_Name: Button_Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,9 +959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e2169d3e825a3499a0affd63deccb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderMusic: {fileID: 3553426452717156618}
-  sliderSFX: {fileID: 3059416838202725775}
-  fullScreen: {fileID: 4423326151951168617}
 --- !u!1 &5318646246107558863
 GameObject:
   m_ObjectHideFlags: 0

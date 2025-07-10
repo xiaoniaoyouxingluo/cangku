@@ -7,7 +7,7 @@ public class Trigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UImanager.Instance.´´½¨Ãæ°å<ChooseRolePanel>();
+        
     }
 
     // Update is called once per frame

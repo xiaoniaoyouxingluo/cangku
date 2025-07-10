@@ -9,7 +9,7 @@ public class AT_扳手 : BasicAliveThing
 
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_扳手_Attack");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Wrench_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Wrench_Attack");
         base.Act(code);
     }
 

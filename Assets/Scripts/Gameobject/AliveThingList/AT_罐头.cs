@@ -12,11 +12,11 @@ public class AT_罐头 : BasicAliveThing
         GetComponent<Animator>().Play("AT_Tin_Attack");
         if (茶杯)
         {
-            AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Cup_Attack");
+            AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Cup_Attack");
         }
         else
         {
-            AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Tin_Attack");
+            AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Tin_Attack");
             //Sfx_Battle_Chequers_Tin_Attack
 
         }

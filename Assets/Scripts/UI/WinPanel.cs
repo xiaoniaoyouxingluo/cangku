@@ -11,7 +11,7 @@ public class WinPanel : MonoBehaviour
 
     void OnEnable()
     {
-        AudioManager.install.PlaySoundEffectsByName("UI_LevelUp_Intro");
+        AudioManager.Instance.PlaySoundEffectsByName("UI_LevelUp_Intro");
     }
     public void Upgarde1_PlusEnergy()
     {
@@ -22,7 +22,7 @@ public class WinPanel : MonoBehaviour
         {
             b.SetActive(false);
         }
-        AudioManager.install.PlaySoundEffectsByName("UI_LevelUp_Select");
+        AudioManager.Instance.PlaySoundEffectsByName("UI_LevelUp_Select");
     }
 
     public void Upgarde2_PlusNum()
@@ -34,7 +34,7 @@ public class WinPanel : MonoBehaviour
         {
             b.SetActive(false);
         }
-        AudioManager.install.PlaySoundEffectsByName("UI_LevelUp_Select");
+        AudioManager.Instance.PlaySoundEffectsByName("UI_LevelUp_Select");
 
     }
 
@@ -61,7 +61,7 @@ public class WinPanel : MonoBehaviour
         {
             b.SetActive(false);
         }
-        AudioManager.install.PlaySoundEffectsByName("UI_LevelUp_Select");
+        AudioManager.Instance.PlaySoundEffectsByName("UI_LevelUp_Select");
 
     }
     private TKey GetRandomKey<TKey, TValue>(Dictionary<TKey, TValue> dict)

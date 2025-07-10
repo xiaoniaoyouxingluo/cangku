@@ -10,7 +10,7 @@ public class AT_饮料 : BasicAliveThing
 
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_饮料_Shoot");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_Drink_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_Drink_Attack");
         base.Act(code);
     }
 

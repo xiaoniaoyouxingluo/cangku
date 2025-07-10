@@ -11,7 +11,7 @@ public class AT_电池负 : BasicAliveThing
 
         //之后也许可以判断羁绊之类的
         GetComponent<Animator>().Play("AT_正电池_Attack");
-        AudioManager.install.PlaySoundEffectsByName("Sfx_Battle_Chequers_BatteryS_Attack");
+        AudioManager.Instance.PlaySoundEffectsByName("Sfx_Battle_Chequers_BatteryS_Attack");
         base.Act(code);
     }
 

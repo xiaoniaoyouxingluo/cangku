@@ -19,7 +19,7 @@ public class UI_MenuButtonSound : MonoBehaviour, IPointerEnterHandler,IPointerCl
     {
         isOn= false;
         var  hoverSound = Resources.Load<AudioClip>("Sounds/" + _clickSoundName);
-        AudioManager.install.PlaySoundEffects(hoverSound);
+        AudioManager.Instance.PlaySoundEffects(hoverSound);
 
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -32,7 +32,7 @@ public class UI_MenuButtonSound : MonoBehaviour, IPointerEnterHandler,IPointerCl
         if (isOn)
         {
             var hoverSound = Resources.Load<AudioClip>("Sounds/" + _hoverSoundName);
-            AudioManager.install.PlaySoundEffects(hoverSound);
+            AudioManager.Instance.PlaySoundEffects(hoverSound);
         }
     }
 }

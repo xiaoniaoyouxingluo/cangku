@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 using System.Reflection;
 using System.Linq;
 using Spine;
-
+/// <summary>
+/// 家具选择面板
+/// </summary>
 public class ChooseRolePanel : BasePanel
 {
     public Transform 主框架;
@@ -17,12 +19,10 @@ public class ChooseRolePanel : BasePanel
     public List<GameObject> ghostInTX = new List<GameObject>();
     public string toRoom = "InBattle";
 
-    private void OnEnable()
+    void Start()
     {
         foreach(var e in 可用槽位)
-        {
             e.SetActive(false);
-        }
         for(int i = 0; i < GameDataMgr.Instance.playerData.num; i++)
         {
             if(可用槽位.Count > i)
@@ -37,6 +37,23 @@ public class ChooseRolePanel : BasePanel
                 nc.SetActive(true);
             }
         }
+
+        Button control;
+        foreach (var agentInfo in GameDataMgr.Instance.AgentDic.Keys)
+        {
+            control = GetControl<Button>(agentInfo);
+
+            if (control != null)
+            {
+                agentButtons[agentInfo] = control;
+                print("已添加" + agentInfo);
+                UImanager.AddCustomEventListener(control, EventTriggerType.PointerExit, (b) =>
+                {
+                    GetControl<Image>("介绍1").gameObject.SetActive(false);
+                });
+            }
+        }
+        UpdateButtonStates();
     }
 
     public GameObject getGostInTX()
@@ -91,25 +108,6 @@ public class ChooseRolePanel : BasePanel
             }
         }
     }
-    void Start()
-    {
-        Button control;
-        foreach (var agentInfo in GameDataMgr.Instance.AgentDic.Keys)
-        {
-            control = GetControl<Button>(agentInfo);
-
-            if (control != null)
-            {
-                agentButtons[agentInfo] = control;
-                print("已添加" + agentInfo);
-                UImanager.AddCustomEventListener(control, EventTriggerType.PointerExit, (b) =>
-                {
-                    GetControl<Image>("介绍1").gameObject.SetActive(false);
-                });
-            }
-        }
-        UpdateButtonStates();
-    }
     protected override void ClickBtn(string btnName)
     {
         if (GameDataMgr.Instance.AgentDic.ContainsKey(btnName))
@@ -122,7 +120,7 @@ public class ChooseRolePanel : BasePanel
                 {
 
 
-                    AudioManager.install.PlaySoundEffectsByName("UI_PickUp");
+                    AudioManager.Instance.PlaySoundEffectsByName("UI_PickUp");
                     // 添加后立即隐藏按钮
                     if (agentButtons.TryGetValue(btnName, out Button button))
                     {
