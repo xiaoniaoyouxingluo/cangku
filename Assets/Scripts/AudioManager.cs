@@ -23,7 +23,6 @@ public class AudioManager : SingletonMono<AudioManager>
     // Update is called once per frame
     void Update()
     {
-        ads.volume = GameDataMgr.Instance.musicData.soundValue;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingIsOn)

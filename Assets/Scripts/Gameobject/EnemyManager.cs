@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 管理物体行动的
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;

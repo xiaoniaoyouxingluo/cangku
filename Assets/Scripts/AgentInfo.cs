@@ -13,7 +13,7 @@ public class AgentInfo
     public int recyclingPrice;  //回收
     public int weight; //商店随机权重
     public int energy;//需要花费的能量
-    public string prefabName;
+    public string prefabName;//预设体名字
     //public int cost; //费用
     //public int atk; //攻击力
     //public int hp; //血量

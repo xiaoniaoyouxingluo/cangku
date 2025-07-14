@@ -7,14 +7,16 @@ public enum TeamType
     Team1,//玩家
     Team2//敌人
 }
-
+/// <summary>
+/// 灵居基类
+/// </summary>
 public class BasicAliveThing : MonoBehaviour
 {
     public string RealName;
     public TeamType teamType;
     int getCode;
-    public int cost;
-    public int Damage;
+    public int cost;//费用
+    public int Damage;//伤害
     public bool 初始面向反转;
     bool becomeDead;
     List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();

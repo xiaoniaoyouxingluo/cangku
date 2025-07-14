@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// ÑªÁ¿ºÍ»¤¼×
+/// </summary>
 public class HealthMgr : MonoBehaviour
 {
     public int Health;

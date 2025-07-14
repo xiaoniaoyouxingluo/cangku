@@ -15,7 +15,7 @@ public class GameDataMgr : BaseManager<GameDataMgr>
     public PlayerData playerData = new PlayerData();
     //音乐数据
     public MusicData musicData = new MusicData();
-    //等级
+    //第几关
     public int Level = 1;
     private GameDataMgr() 
     {

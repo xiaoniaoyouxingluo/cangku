@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AnimatorToActive : MonoBehaviour
 {
-
-    public string btnName;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +18,6 @@ public class AnimatorToActive : MonoBehaviour
 
     public void activeOff()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

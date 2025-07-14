@@ -8,6 +8,9 @@ public class EnemyUnit
 {
     public List<GameObject> Enemies;
 }
+/// <summary>
+/// 管理局内的位置关系和费用
+/// </summary>
 public class inBattleManager : MonoBehaviour
 {
     private List<AgentInfo> agentInfos;
@@ -33,8 +36,8 @@ public class inBattleManager : MonoBehaviour
     public bool isEnd;
     private void Awake()
     {
+        Instance = this;
         GameObjectPool.Instance.ClearQueue();
-        Instance = this; 
         CameraShake.Instance.ToString();
     }
 
