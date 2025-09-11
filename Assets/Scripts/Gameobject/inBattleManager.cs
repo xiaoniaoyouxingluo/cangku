@@ -15,7 +15,9 @@ public class inBattleManager : MonoBehaviour
 {
     private List<AgentInfo> agentInfos;
     public static inBattleManager Instance;
+    //第一行
     public List<GameObject> Line1 = new List<GameObject>() { null,null,null,null,null,null};//xxx xxx xxx aaa aaa aaa;6个对象,其在列表中位置即为场景中位置
+    //第二行
     public List<GameObject> Line2 = new List<GameObject>() { null, null, null, null, null, null };//xxx xxx xxx aaa aaa aaa;6个对象,其在列表中位置即为场景中位置
     public List<EnemyUnit> 敌方出怪池 = new List<EnemyUnit>() ;
     public List<GameObject> 敌方可能生成的 = new List<GameObject>();

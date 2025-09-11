@@ -13,7 +13,7 @@ public enum TeamType
 public class BasicAliveThing : MonoBehaviour
 {
     public string RealName;
-    public TeamType teamType;
+    public TeamType teamType;//属于玩家还是敌方
     int getCode;
     public int cost;//费用
     public int Damage;//伤害

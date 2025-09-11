@@ -1,0 +1,17 @@
+public class AgentInfo
+{
+    public int id;
+    public string name;
+    public byte rarity;
+    public int energy;
+    public float atk;
+    public float hp;
+    public float defense;
+    public float shield;
+    public string tipstxt;
+    public int type;
+    public byte level;
+    public int sellingpPrice;
+    public int recyclingPrice;
+    public string prefabName;
+}

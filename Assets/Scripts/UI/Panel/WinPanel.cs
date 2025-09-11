@@ -47,9 +47,9 @@ public class WinPanel : MonoBehaviour
             "正电池",
             "负电池"
         };
-        foreach(var d in GameDataMgr.Instance.AgentDic)
+        foreach(var d in BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic)
         {
-            if (nam.Contains(d.Key))
+            if (nam.Contains(d.Value.name))
             {
                 list.Add(d.Value);
             }
@@ -84,21 +84,21 @@ public class WinPanel : MonoBehaviour
     public void Continue()
     {
         var list = new List<AgentInfo>();
-        foreach(var l in inBattleManager.Instance.getAllObj(TeamType.Team1))
-        {
-            var a = new AgentInfo();
-            if(l != null)
-            {
-                if(GameDataMgr.Instance.AgentDic.TryGetValue(l.GetComponent<BasicAliveThing>().RealName,out a))
-                {
-                    list.Add(a);
-                    if (GameDataMgr.Instance.historyAgentList.Contains(a))
-                    {
-                        GameDataMgr.Instance.historyAgentList.Remove(a);
-                    }
-                }
-            }
-        }
+        //foreach(var l in inBattleManager.Instance.getAllObj(TeamType.Team1))
+        //{
+        //    var a = new AgentInfo();
+        //    if(l != null)
+        //    {
+        //        if(BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic.TryGetValue(l.GetComponent<BasicAliveThing>().RealName,out a))
+        //        {
+        //            list.Add(a);
+        //            if (GameDataMgr.Instance.historyAgentList.Contains(a))
+        //            {
+        //                GameDataMgr.Instance.historyAgentList.Remove(a);
+        //            }
+        //        }
+        //    }
+        //}
         GameDataMgr.Instance.nowAgentList.AddRange(list);
         foreach(var s in GameDataMgr.Instance.nowAgentList)
         {

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 子弹预设体类
+/// </summary>
 public class Bullet : MonoBehaviour
 {
-    public BasicAliveThing parentObj;
+    public BasicAliveThing parentObj;//创建子弹的
     float damage;
     public float speed;
     public bool 无视防御;

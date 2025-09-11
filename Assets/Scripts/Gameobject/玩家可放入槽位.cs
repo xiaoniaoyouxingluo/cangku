@@ -5,8 +5,8 @@ using UnityEngine;
 public class 玩家可放入槽位 : MonoBehaviour
 {
     public GameObject 此地物体;
-    public int Line;
-    public int Index;
+    public int Line;//行
+    public int Index;//列
 
 
     private void Update()

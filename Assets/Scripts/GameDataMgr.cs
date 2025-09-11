@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class GameDataMgr : BaseManager<GameDataMgr>
 {
-    //游戏全家具字典
-    public Dictionary<string, AgentInfo> AgentDic = new Dictionary<string, AgentInfo>();
     //当前游戏玩家所拥有的家具
     public List<AgentInfo> nowAgentList = new List<AgentInfo>();
     public List<AgentInfo> historyAgentList = new List<AgentInfo>();
@@ -20,8 +18,7 @@ public class GameDataMgr : BaseManager<GameDataMgr>
     private GameDataMgr() 
     {
         //读取某个json来着；
-        string str = File.ReadAllText(Application.streamingAssetsPath + "/AgentDic.json");
-        AgentDic = JsonMapper.ToObject<Dictionary<string, AgentInfo>>(str);
+        string str;
         if (File.Exists(Application.persistentDataPath + "/playerData.json"))
         {
             str = File.ReadAllText(Application.persistentDataPath + "/playerData.json");

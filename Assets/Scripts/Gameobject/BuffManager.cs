@@ -21,7 +21,7 @@ public class BuffManager : MonoBehaviour
     [Header("变化数值")]
     public float damageScale = 1;
 
-
+    
     public float sheildScale = 1;
     public float hurtScale = 1;
     public float damagePlus;

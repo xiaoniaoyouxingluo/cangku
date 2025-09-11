@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 384710114181887689}
   - component: {fileID: 384710114181887684}
   - component: {fileID: 384710114181887691}
-  - component: {fileID: 384710114181887690}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -77,35 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710114181887690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710114181887688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710114181887688}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710114195659178
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,8 +290,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -641,8 +611,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -772,8 +742,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -903,8 +873,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -1116,7 +1086,6 @@ GameObject:
   - component: {fileID: 384710114615766425}
   - component: {fileID: 384710114615766420}
   - component: {fileID: 384710114615766427}
-  - component: {fileID: 384710114615766426}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -1182,35 +1151,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710114615766426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710114615766424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710114615766424}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710114651286529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,8 +1551,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -1817,8 +1757,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -1935,7 +1875,6 @@ GameObject:
   - component: {fileID: 384710114933921152}
   - component: {fileID: 384710114933921155}
   - component: {fileID: 384710114933921154}
-  - component: {fileID: 384710114933921153}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -2001,35 +1940,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710114933921153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710114933921159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710114933921159}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710114939641593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,10 +2146,10 @@ RectTransform:
   m_Father: {fileID: 384710114651286530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626.64294, y: -83.221}
-  m_SizeDelta: {x: 140, y: 140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 722.643, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384710115006123248
 CanvasRenderer:
@@ -2319,8 +2229,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -2342,7 +2252,6 @@ GameObject:
   - component: {fileID: 384710115014003131}
   - component: {fileID: 384710115014003126}
   - component: {fileID: 384710115014003125}
-  - component: {fileID: 384710115014003124}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -2408,35 +2317,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115014003124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115014003130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115014003130}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115018570398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,7 +2573,6 @@ GameObject:
   - component: {fileID: 384710115155549188}
   - component: {fileID: 384710115155549191}
   - component: {fileID: 384710115155549190}
-  - component: {fileID: 384710115155549189}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -2759,35 +2638,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115155549189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115155549195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115155549195}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115196249130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,7 +2894,6 @@ GameObject:
   - component: {fileID: 384710115356606355}
   - component: {fileID: 384710115356606350}
   - component: {fileID: 384710115356606349}
-  - component: {fileID: 384710115356606348}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3110,35 +2959,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115356606348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115356606354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115356606354}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115420188843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,7 +2970,6 @@ GameObject:
   - component: {fileID: 384710115420188836}
   - component: {fileID: 384710115420188839}
   - component: {fileID: 384710115420188838}
-  - component: {fileID: 384710115420188837}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3216,35 +3035,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115420188837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115420188843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115420188843}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115438943925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,8 +3154,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -3387,7 +3177,6 @@ GameObject:
   - component: {fileID: 384710115468495670}
   - component: {fileID: 384710115468495665}
   - component: {fileID: 384710115468495664}
-  - component: {fileID: 384710115468495671}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3453,35 +3242,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115468495671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115468495669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115468495669}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115498995210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,8 +3361,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -4020,7 +3780,6 @@ GameObject:
   - component: {fileID: 384710115775485967}
   - component: {fileID: 384710115775485962}
   - component: {fileID: 384710115775485961}
-  - component: {fileID: 384710115775485960}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -4086,35 +3845,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710115775485960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710115775485966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710115775485966}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710115784434497
 GameObject:
   m_ObjectHideFlags: 0
@@ -4226,10 +3956,10 @@ RectTransform:
   m_Father: {fileID: 384710114651286530}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626.64294, y: -83.221}
-  m_SizeDelta: {x: 140, y: 140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 792.643, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384710115830527874
 CanvasRenderer:
@@ -4309,8 +4039,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -4440,8 +4170,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
+        - m_Target: {fileID: 9077303056906651700}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
           m_MethodName: ClickBtn
           m_Mode: 2
           m_Arguments:
@@ -4560,7 +4290,7 @@ GameObject:
   - component: {fileID: 384710115945575520}
   - component: {fileID: 384710115945575527}
   m_Layer: 5
-  m_Name: Button
+  m_Name: btnQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4667,19 +4397,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 384710115945575520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: inBattleManager, Assembly-CSharp
-        m_MethodName: EndRound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &384710116050589968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4409,6 @@ GameObject:
   - component: {fileID: 384710116050589969}
   - component: {fileID: 384710116050589964}
   - component: {fileID: 384710116050589971}
-  - component: {fileID: 384710116050589970}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -4757,35 +4474,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710116050589970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710116050589968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710116050589968}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710116085976704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,7 +4580,6 @@ GameObject:
   - component: {fileID: 384710116134812141}
   - component: {fileID: 384710116134812136}
   - component: {fileID: 384710116134812143}
-  - component: {fileID: 384710116134812142}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -4958,35 +4645,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &384710116134812142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710116134812140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 384710116280685374}
-          m_TargetAssemblyTypeName: PutThingPanel, Assembly-CSharp
-          m_MethodName: ClickBtn
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 384710116134812140}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &384710116159428646
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,7 +4826,6 @@ GameObject:
   m_Component:
   - component: {fileID: 384710116280685372}
   - component: {fileID: 384710116280685373}
-  - component: {fileID: 384710116280685374}
   m_Layer: 5
   m_Name: BattleUI
   m_TagString: Untagged
@@ -5206,32 +4863,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384710116280685315}
   m_CullTransparentMesh: 1
---- !u!114 &384710116280685374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384710116280685315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd8bf1bd468a1e4abac53bc106f0b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "\u4E3B\u6846\u67B6": {fileID: 384710114651286530}
-  "\u69FD\u4F4D": {fileID: 384710115006123253}
-  "\u53EF\u7528\u69FD\u4F4D":
-  - {fileID: 384710115006123253}
-  - {fileID: 384710115830527878}
-  - {fileID: 384710115498995210}
-  - {fileID: 384710114487765456}
-  - {fileID: 384710114353390647}
-  - {fileID: 384710114224939230}
-  - {fileID: 384710115855300866}
-  - {fileID: 384710115438943925}
-  - {fileID: 384710114769543717}
-  - {fileID: 384710114390514109}
-  - {fileID: 384710114861561483}
 --- !u!1 &3723882129131112451
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,3 +4953,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4e9817ef432ea40af2104a27c43160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "\u4E3B\u6846\u67B6": {fileID: 384710114651286530}
+  "\u69FD\u4F4D": {fileID: 384710115006123253}
+  "\u53EF\u7528\u69FD\u4F4D":
+  - {fileID: 384710115006123253}
+  - {fileID: 384710115830527878}
+  - {fileID: 384710115498995210}
+  - {fileID: 384710114487765456}
+  - {fileID: 384710114353390647}
+  - {fileID: 384710114224939230}
+  - {fileID: 384710115855300866}
+  - {fileID: 384710115438943925}
+  - {fileID: 384710114769543717}
+  - {fileID: 384710114390514109}
+  - {fileID: 384710114861561483}
