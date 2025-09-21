@@ -28,7 +28,6 @@ public class LosePanel : MonoBehaviour
         aimScene = "Menu";
         GetComponent<Animator>().Play("LosePanel_Out");
         GameDataMgr.Instance.nowAgentList.Clear();
-        GameDataMgr.Instance.historyAgentList.Clear();
     }
 
     public void Out()

@@ -1396,13 +1396,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7649658866617310842}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Show
-          m_Mode: 1
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: showIntroduce
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 4436828502819036886}
+            m_ObjectArgumentAssemblyTypeName: AgentObj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1412,9 +1412,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7649658866617310842}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Hide
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: HideIntroduce
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1590,11 +1590,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7649658868026893363}
-  - component: {fileID: 7649658868026893362}
   - component: {fileID: 7649658868026893373}
   - component: {fileID: 7649658868026893372}
-  - component: {fileID: 7649658868026893375}
-  - component: {fileID: 7649658868026893374}
+  - component: {fileID: 4436828502819036886}
   m_Layer: 0
   m_Name: "\u76D2\u5B50"
   m_TagString: Untagged
@@ -1609,7 +1607,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7649658868026893369}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.5, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1621,23 +1619,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7649658868026893362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7649658868026893369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1584a34225a8aa647abbfe043c267873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 40
-  nowHealth: 0
-  isDead: 0
-  Sheild: 100
-  isHurting: 0
 --- !u!95 &7649658868026893373
 Animator:
   serializedVersion: 5
@@ -1685,7 +1666,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.72, y: 3.81}
   m_EdgeRadius: 0
---- !u!114 &7649658868026893375
+--- !u!114 &4436828502819036886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1694,36 +1675,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7649658868026893369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f9641f6fe251a42bf574bd01d9c6bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b0e858d8b3aef849816337e49788b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicDamSc: 1
-  basicShdSc: 1
-  basicHutSc: 1
-  damageScale: 1
-  sheildScale: 1
-  hurtScale: 1
-  damagePlus: 0
-  hurtPlus: 0
-  sheildPlus: 0
-  data: []
---- !u!114 &7649658868026893374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7649658868026893369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ade5047ae07f94f9e330654b0ae3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RealName: "\u76D2\u5B50"
-  teamType: 1
-  cost: 8
-  Damage: 30
-  "\u521D\u59CB\u9762\u5411\u53CD\u8F6C": 1
+  teamType: 0
 --- !u!1 &7649658868076230148
 GameObject:
   m_ObjectHideFlags: 0

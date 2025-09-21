@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.Reflection;
 using System.Linq;
 using Spine;
+using UnityEditor.U2D.Path.GUIFramework;
 /// <summary>
 /// 家具选择面板
 /// </summary>
@@ -66,78 +67,33 @@ public class ChooseRolePanel : BasePanel
     /// <param name="control">鼠标进入的控件</param>
     public void showIntroduce(Button control)
     {
-        string agentInfo = control.name;//获取控件名字
+        AgentInfo agentInfo = BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[control.GetComponent<RoleChoose_Box>().id];//根据按钮上的组件中记录的id取出数据
         Image introduceImage = GetControl<Image>("介绍1");
-        if (introduceImage != null)
-        {
-            introduceImage.gameObject.SetActive(true);//显示介绍面板
-        }
-
-        RoleChoose_Box roleBox = control.GetComponent<RoleChoose_Box>();//获取灵居预设体关联组件
-        if (roleBox == null || roleBox.AimObj == null)
-        {
-            Debug.LogError($"RoleChoose_Box or AimObj missing on {control.name}");
-            return;
-        }
-
-        HealthMgr healthMgr = roleBox.AimObj.GetComponent<HealthMgr>();//获取血量和护甲
-        BasicAliveThing basicAlive = roleBox.AimObj.GetComponent<BasicAliveThing>();//获取灵居基类
-
-        if (healthMgr == null || basicAlive == null)
-        {
-            Debug.LogError($"Required components missing on {roleBox.AimObj.name}");
-            return;
-        }
+        introduceImage.gameObject.SetActive(true);//显示介绍面板
 
         Text introduceText = GetControl<Text>("介绍");//获取介绍文本组件
         if (introduceText != null)
         {
-            string hp = healthMgr.Health.ToString();
-            string damage = basicAlive.Damage.ToString();
-            string cost = basicAlive.cost.ToString();
-            //introduceText.text = $"{agentInfo}[血量:{hp}，伤害{damage}，费用{cost}]\n{GameDataMgr.Instance.AgentDic[agentInfo].tipstxt}";//拼接介绍字符串
-
-            if (introduceImage != null)
-            {
-                introduceImage.transform.position = control.transform.position - Vector3.up * 60;//设置介绍面板位置
-            }
+            string hp = agentInfo.hp.ToString();
+            string damage = agentInfo.atk.ToString();
+            string cost = agentInfo.cost.ToString();
+            introduceText.text = $"{agentInfo.name}[血量:{hp}，伤害{damage}，费用{cost}]\n{agentInfo.tipstxt}";//拼接介绍字符串
+            Vector3 v = control.transform.position - Vector3.up * 60;//设置介绍面板位置
+            //介绍面板在屏幕上的最小位置
+            Vector2 screenMinVer = new Vector2(0 + (introduceImage.transform as RectTransform).sizeDelta.x / 2, 0 + (introduceImage.transform as RectTransform).sizeDelta.y / 2);
+            //介绍面板在屏幕上的最大位置
+            Vector2 screenMaxVer = new Vector2(Screen.width - (introduceImage.transform as RectTransform).sizeDelta.x / 2, Screen.height - (introduceImage.transform as RectTransform).sizeDelta.y / 2);
+            introduceImage.transform.position = new Vector3(Mathf.Clamp(v.x, screenMinVer.x, screenMaxVer.x), Mathf.Clamp(v.y, screenMinVer.y, screenMaxVer.y));//防止介绍面板超出屏幕范围
         }
     }
     protected override void ClickBtn(string btnName)
     {
-        //if (GameDataMgr.Instance.AgentDic.ContainsKey(btnName))
-        //{
-        //    AgentInfo agent = GameDataMgr.Instance.AgentDic[btnName];
-        //    if (!GameDataMgr.Instance.nowAgentList.Contains(agent))
-        //    {
-        //        if (GameDataMgr.Instance.nowAgentList.Count < GameDataMgr.Instance.playerData.num)
-        //        {
-        //            AudioManager.Instance.PlaySoundEffectsByName("UI_PickUp");//播放音效
-        //            // 添加后立即隐藏按钮
-        //            Button button = GetControl<Button>(btnName);
-        //            button.gameObject.SetActive(false);
-        //            agent.prefabName = btnName;//设置预设体名字
-        //            Instantiate<GameObject>(ghostInTX, button.transform.position, Quaternion.identity, this.transform);//创建鬼魂特效
-        //            Image introduceImage = GetControl<Image>("介绍1");
-        //            if (introduceImage != null)
-        //                introduceImage.gameObject.SetActive(false);
-        //            GameDataMgr.Instance.nowAgentList.Add(agent);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        GameDataMgr.Instance.nowAgentList.Remove(agent);
-        //        // 移除后重新显示按钮
-        //        GetControl<Button>(btnName).gameObject.SetActive(true);
-        //    }
-        //    Update可用槽位();
-        //}
         switch (btnName)
         {
             case "切换":
-                if(GameDataMgr.Instance.nowAgentList.Count <= GameDataMgr.Instance.playerData.num)
+                if (GameDataMgr.Instance.agentList.Count <= GameDataMgr.Instance.playerData.num)
                 {
-                    if(GameDataMgr.Instance.Level % 5 == 0)
+                    if (GameDataMgr.Instance.Level % 5 == 0)
                     {
                         toRoom = "InBattle_Boss";
                     }
@@ -145,12 +101,43 @@ public class ChooseRolePanel : BasePanel
                     {
                         toRoom = "InBattle";
                     }
-                    SceneManager.LoadScene(toRoom);
-                    GameDataMgr.Instance.historyAgentList.AddRange(GameDataMgr.Instance.nowAgentList);
-                    UImanager.Instance.创建面板<GamePanel>();
-                    UImanager.Instance.删除面板<ChooseRolePanel>();
+                    //切换场景
+                    AsyncOperation ao = SceneManager.LoadSceneAsync(toRoom);
+                    //进行关卡初始化
+                    ao.completed += (obj) =>
+                    {
+                        UImanager.Instance.删除面板<ChooseRolePanel>();
+                        UImanager.Instance.创建面板<GamePanel>();
+                        GameLevelMgr.Instance.InitInfo();
+                    };
                 }
-                break;
+                return;
+        }
+        Button button = GetControl<Button>(btnName);//按下的按钮
+        int id = button.GetComponent<RoleChoose_Box>().id;//灵居id
+        if (BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic.ContainsKey(id))//是配置表中有的id
+        {
+            AgentInfo agent = BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[id];
+            if (!GameDataMgr.Instance.agentList.Contains(id))//不处于已拥有列表
+            {
+                if (GameDataMgr.Instance.agentList.Count < GameDataMgr.Instance.playerData.num)
+                {
+                    //AudioManager.Instance.PlaySoundEffectsByName("UI_PickUp");//播放音效
+                    button.gameObject.SetActive(false);// 添加后立即隐藏按钮
+                    agent.prefabName = btnName;//设置预设体名字
+                    Instantiate<GameObject>(ghostInTX, button.transform.position, Quaternion.identity, this.transform);//创建鬼魂特效
+                    Image introduceImage = GetControl<Image>("介绍1");
+                    introduceImage.gameObject.SetActive(false);//隐藏介绍面板
+                    GameDataMgr.Instance.agentList.Add(id);//把选择加入列表
+                }
+            }
+            else
+            {
+                GameDataMgr.Instance.agentList.Remove(id);
+                // 移除后重新显示按钮
+                GetControl<Button>(btnName).gameObject.SetActive(true);
+            }
+            Update可用槽位();
         }
     }
     /// <summary>
@@ -160,11 +147,9 @@ public class ChooseRolePanel : BasePanel
     {
         foreach (var kv in agentButtons)
         {
-            string agentName = kv.Key;
             Button button = kv.Value;
-
             // 如果该角色已在选择列表中，隐藏按钮
-            bool isSelected = GameDataMgr.Instance.nowAgentList.Any(a => a.name == agentName) || GameDataMgr.Instance.historyAgentList.Any(a => a.name == agentName);
+            bool isSelected = GameDataMgr.Instance.agentList.Contains(button.GetComponent<RoleChoose_Box>().id);
             button.gameObject.SetActive(!isSelected);
         }
     }
@@ -175,10 +160,10 @@ public class ChooseRolePanel : BasePanel
     {
         for (int i = 0; i < GameDataMgr.Instance.playerData.num; i++)
         {
-            if (GameDataMgr.Instance.nowAgentList.Count > i)
+            if (GameDataMgr.Instance.agentList.Count > i)
             {
-                可用槽位[i].transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/UI/EnemyImg/" + GameDataMgr.Instance.nowAgentList[i].name);
-                可用槽位[i].transform.GetChild(0).name = GameDataMgr.Instance.nowAgentList[i].name;
+                可用槽位[i].transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/UI/EnemyImg/" + BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[GameDataMgr.Instance.agentList[i]].name);
+                可用槽位[i].transform.GetChild(0).name = GameDataMgr.Instance.agentList[i].ToString();
             }
             else
             {
@@ -189,15 +174,15 @@ public class ChooseRolePanel : BasePanel
     }
     public void ReturnObj(GameObject 槽位子对象)
     {
-        //if (槽位子对象.name != "空")
-        //{
-        //    string agentName = 槽位子对象.name;
-        //    AgentInfo agent = GameDataMgr.Instance.AgentDic[agentName];
-        //    GameDataMgr.Instance.nowAgentList.Remove(agent);
-        //    // 移除后重新显示按钮
-        //    GetControl<Button>(agentName).gameObject.SetActive(true);
-        //    Update可用槽位();
-        //}        
+        if (槽位子对象.name != "空")
+        {
+            int agentid = int.Parse(槽位子对象.name);
+            AgentInfo agent = BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[agentid];
+            GameDataMgr.Instance.agentList.Remove(agentid);
+            // 移除后重新显示按钮
+            GetControl<Button>(agent.name).gameObject.SetActive(true);
+            Update可用槽位();
+        }
     }
 
 }

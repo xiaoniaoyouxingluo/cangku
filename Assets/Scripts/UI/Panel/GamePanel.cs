@@ -8,65 +8,58 @@ public class GamePanel : BasePanel
     public Transform 主框架;
     public GameObject 槽位;
     public List<GameObject> 可用槽位 = new List<GameObject>();
+    public Image 介绍1;
+    public Text 介绍;
     GameObject 选中物品;
     卡槽数据 data选中;
     // Start is called before the first frame update
     void Start()
     {
-        
-        for (int i = 0; i < GameDataMgr.Instance.playerData.num; i++)
+        AgentInfo ai;
+        GameObject nc;
+        for (int i = 0; i < GameDataMgr.Instance.agentList.Count; i++)//把可用槽位创建一定数量
         {
-            if (可用槽位.Count > i)
-            {
-                可用槽位[i].SetActive(true);
-            }
-            else
-            {
-                var nc = Instantiate(槽位);
-                nc.transform.SetParent(主框架);
-                可用槽位.Add(nc);
-                nc.SetActive(true);
-            }
+            nc = Instantiate(槽位);
+            nc.transform.SetParent(主框架);
+            可用槽位.Add(nc);
+            nc.SetActive(true);
+            ai = BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[GameDataMgr.Instance.agentList[i]];
+            nc.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/UI/EnemyImg/" + ai.name);
+            if (nc.GetComponent<卡槽数据>() == null)
+                nc.AddComponent<卡槽数据>();
+
+            nc.GetComponent<卡槽数据>().Name = ai.name;
+            nc.GetComponent<卡槽数据>().AgentInfo = ai;
+            nc.GetComponent<卡槽数据>().物体 = Resources.Load<GameObject>("Prefabs/Enemies/" + ai.name);
+            nc.GetComponent<卡槽数据>().Cost = ai.cost;
+            nc.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ai.cost.ToString();
         }
-        Update部署栏();
     }
     protected override void Update()
     {
         base.Update();
-        if (inBattleManager.Instance.isEnd)
-        {
-            return;
-        }
-        inBattleManager.Instance.可以交换 = 选中物品 == null;
         if (选中物品 != null)
         {
-
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, 1 << 8);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, 1 << 8);//射线检测获取场上的部署位
             if (hit.collider != null && hit.collider.gameObject.GetComponent<玩家可放入槽位>()?.此地物体 == null)
             {
                 选中物品.transform.position = hit.collider.transform.position;
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0))//鼠标左键部署
                 {
-
                     hit.collider.gameObject.GetComponent<玩家可放入槽位>().此地物体 = 选中物品;
-                    if (hit.collider.gameObject.GetComponent<玩家可放入槽位>().Line == 1)
-                    {
-                        inBattleManager.Instance.Line1[hit.collider.gameObject.GetComponent<玩家可放入槽位>().Index] = 选中物品;
-                    }
-                    if (hit.collider.gameObject.GetComponent<玩家可放入槽位>().Line == 2)
-                    {
-                        inBattleManager.Instance.Line2[hit.collider.gameObject.GetComponent<玩家可放入槽位>().Index] = 选中物品;
-                    }
+                    GameSceneManager.Instance.Line1[hit.collider.gameObject.GetComponent<玩家可放入槽位>().pos.x, hit.collider.gameObject.GetComponent<玩家可放入槽位>().pos.y] = 选中物品;
                     选中物品.transform.SetParent(hit.collider.gameObject.transform);
                     选中物品.transform.localScale = new Vector2(1, 1);
                     选中物品.transform.localPosition = Vector2.zero;
-                    选中物品.GetComponent<BasicAliveThing>().teamType = TeamType.Team1;
-                    选中物品.GetComponent<BasicAliveThing>().Reset();
-                    GameDataMgr.Instance.nowAgentList.Remove(data选中.AgentInfo);
-                    inBattleManager.Instance.GhostNum -= data选中.Cost;
+                    选中物品.GetComponent<AgentObj>().teamType = TeamType.Team1;//设置成我方阵营
+                    //选中物品.GetComponent<AgentObj>().InitObj(data选中.AgentInfo.id);//初始化预设体数据
+                    for (int i = 0; i < 可用槽位.Count; i++)
+                        if (data选中.Name == 可用槽位[i].GetComponent<卡槽数据>().Name)//失活部署栏中的选择
+                            可用槽位[i].SetActive(false);
+                    GameLevelMgr.Instance.GhostNum -= data选中.Cost;//扣除剩余能量
                     选中物品 = null;
                     data选中 = null;
-                    AudioManager.Instance.PlaySoundEffectsByName("UI_MoveChequers_Set");
+                    MusicMgr.Instance.PlaySound("Sounds/UI_MoveChequers_Set");//播放音效
                 }
             }
             else
@@ -76,7 +69,7 @@ public class GamePanel : BasePanel
 
             if (Input.GetMouseButtonDown(1))
             {
-                GameObjectPool.Instance.AddObject(选中物品);
+                Destroy(选中物品);
                 选中物品 = null;
                 data选中 = null;
             }
@@ -115,11 +108,36 @@ public class GamePanel : BasePanel
     }
     public void ClickBtn(卡槽数据 data)
     {
-        if (data.Name != "空" && data.物体 != null && 选中物品 == null && data.Cost <= inBattleManager.Instance.GhostNum && !inBattleManager.Instance.isActing)
+        if (data.Cost <= GameLevelMgr.Instance.GhostNum)
         {
-            AudioManager.Instance.PlaySoundEffectsByName("UI_MoveChequers_Pick");
-            选中物品 = GameObjectPool.Instance.CreateGameObject(data.物体, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            MusicMgr.Instance.PlaySound("Sounds/UI_MoveChequers_Pick");
+            选中物品 = Instantiate(data.物体);
             data选中 = data;
+            选中物品.GetComponent<AgentObj>().InitObj(data选中.AgentInfo.id);//初始化预设体数据
         }
+    }
+    /// <summary>
+    /// 鼠标进入控件显示介绍
+    /// </summary>
+    /// <param name="agentObj">玩家对象</param>
+    public void showIntroduce(AgentObj agentObj)
+    {
+        UImanager.Instance.GetPanel<GamePanel>().介绍1.gameObject.SetActive(true);//显示介绍面板
+        UImanager.Instance.GetPanel<GamePanel>().介绍.text = agentObj.Property.tipstxt;
+        Vector3 v = Camera.main.WorldToScreenPoint(agentObj.transform.position) - Vector3.up * 100;//设置介绍面板位置
+                                                                                                  //介绍面板在屏幕上的最小位置
+        v.z = 0;
+        Vector2 screenMinVer = new Vector2(0 + (UImanager.Instance.GetPanel<GamePanel>().介绍1.transform as RectTransform).sizeDelta.x / 2, 0 + (UImanager.Instance.GetPanel<GamePanel>().介绍1.transform as RectTransform).sizeDelta.y / 2);
+        //介绍面板在屏幕上的最大位置
+        Vector2 screenMaxVer = new Vector2(Screen.width - (UImanager.Instance.GetPanel<GamePanel>().介绍1.transform as RectTransform).sizeDelta.x / 2, Screen.height - (UImanager.Instance.GetPanel<GamePanel>().介绍1.transform as RectTransform).sizeDelta.y / 2);
+        UImanager.Instance.GetPanel<GamePanel>().介绍1.transform.position = new Vector3(Mathf.Clamp(v.x, screenMinVer.x, screenMaxVer.x), Mathf.Clamp(v.y, screenMinVer.y, screenMaxVer.y));//防止介绍面板超出屏幕范围
+
+    }
+    /// <summary>
+    /// 鼠标退出控件隐藏介绍
+    /// </summary>
+    public void HideIntroduce()
+    {
+        UImanager.Instance.GetPanel<GamePanel>().介绍1.gameObject.SetActive(false);//隐藏介绍面板
     }
 }

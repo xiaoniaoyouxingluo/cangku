@@ -273,8 +273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1234113009}
   - component: {fileID: 1234113008}
-  - component: {fileID: 1234113010}
-  - component: {fileID: 1234113007}
   - component: {fileID: 1234113011}
   m_Layer: 0
   m_Name: Main Camera
@@ -283,18 +281,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1234113007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234113006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94af7030ba1ccdb4c82f27f0ac4ce33e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1234113008
 Camera:
   m_ObjectHideFlags: 0
@@ -352,18 +338,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1234113010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234113006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7378ce01b55c6f341a81870b1c4e883d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &1234113011
 AudioListener:
   m_ObjectHideFlags: 0
@@ -397,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8606163368228218395, guid: b244b7d183445bc408448ccb8027b8b5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8606163368228218395, guid: b244b7d183445bc408448ccb8027b8b5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -507,8 +481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726997b625eb22140b68addc7c2bf4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowAgentInfos: []
-  historyAgentInfos: []
   pd:
     startEnergy: 10
     nowHealth: 3
@@ -527,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9096931126175504419
 PrefabInstance:

@@ -6,8 +6,14 @@ using UnityEngine;
 /// </summary>
 public class RoleChoose_Box : MonoBehaviour
 {
-    //记录控件关联的灵居预设体
+    /// <summary>
+    /// 记录控件关联的灵居预设体
+    /// </summary>
     public GameObject AimObj;
+    /// <summary>
+    /// 控件关联的灵居id
+    /// </summary>
+    public int id;
     //记录控件位置
     Vector3 StartLocalPos;
     private void Start()

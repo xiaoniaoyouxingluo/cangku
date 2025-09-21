@@ -6,14 +6,25 @@ using UnityEngine;
 
 public class GameDataMgr : BaseManager<GameDataMgr>
 {
-    //当前游戏玩家所拥有的家具
+    /// <summary>
+    /// 当前游戏玩家所拥有的家具
+    /// </summary>
     public List<AgentInfo> nowAgentList = new List<AgentInfo>();
-    public List<AgentInfo> historyAgentList = new List<AgentInfo>();
-    //玩家数据
+    /// <summary>
+    /// 当前游戏玩家所拥有的家具id
+    /// </summary>
+    public List<int> agentList = new List<int>();
+    /// <summary>
+    /// 玩家数据
+    /// </summary>
     public PlayerData playerData = new PlayerData();
-    //音乐数据
+    /// <summary>
+    /// 音乐数据
+    /// </summary>
     public MusicData musicData = new MusicData();
-    //第几关
+    /// <summary>
+    /// 第几关
+    /// </summary>
     public int Level = 1;
     private GameDataMgr() 
     {

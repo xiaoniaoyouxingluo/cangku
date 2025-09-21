@@ -901,11 +901,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7910234498454034381}
-  - component: {fileID: 7910234498454034378}
   - component: {fileID: 7910234498454034379}
   - component: {fileID: 7910234498454034376}
-  - component: {fileID: 7910234498454034377}
-  - component: {fileID: 7910234498454034374}
+  - component: {fileID: 6386312750016710664}
   m_Layer: 0
   m_Name: "\u68D2\u7403"
   m_TagString: Untagged
@@ -920,7 +918,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7910234498454034375}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.46, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -930,23 +928,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7910234498454034378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7910234498454034375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1584a34225a8aa647abbfe043c267873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 60
-  nowHealth: 0
-  isDead: 0
-  Sheild: 0
-  isHurting: 0
 --- !u!95 &7910234498454034379
 Animator:
   serializedVersion: 5
@@ -994,7 +975,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.72, y: 3.81}
   m_EdgeRadius: 0
---- !u!114 &7910234498454034377
+--- !u!114 &6386312750016710664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1003,36 +984,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7910234498454034375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f9641f6fe251a42bf574bd01d9c6bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b0e858d8b3aef849816337e49788b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicDamSc: 1
-  basicShdSc: 1
-  basicHutSc: 1
-  damageScale: 1
-  sheildScale: 1
-  hurtScale: 1
-  damagePlus: 0
-  hurtPlus: 0
-  sheildPlus: 0
-  data: []
---- !u!114 &7910234498454034374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7910234498454034375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37e02f1b2e091543be336eabf3acb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RealName: "\u68D2\u7403"
-  teamType: 1
-  cost: 4
-  Damage: 24
-  "\u521D\u59CB\u9762\u5411\u53CD\u8F6C": 0
+  teamType: 0
 --- !u!1 &7910234498519731384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,13 +1231,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7910234498355713112}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Show
-          m_Mode: 1
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: showIntroduce
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 6386312750016710664}
+            m_ObjectArgumentAssemblyTypeName: AgentObj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1292,9 +1247,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7910234498355713112}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Hide
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: HideIntroduce
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

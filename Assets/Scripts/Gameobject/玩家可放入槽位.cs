@@ -5,10 +5,8 @@ using UnityEngine;
 public class 玩家可放入槽位 : MonoBehaviour
 {
     public GameObject 此地物体;
-    public int Line;//行
-    public int Index;//列
-
-
+    [Tooltip("行和列")]
+    public Vector2Int pos;
     private void Update()
     {
         if(此地物体 != null)
@@ -18,9 +16,6 @@ public class 玩家可放入槽位 : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(!inBattleManager.Instance.isActing)
-        {
-            inBattleManager.Instance.Upload交换信息(this);
-        }
+        
     }
 }

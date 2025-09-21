@@ -3,7 +3,7 @@ public class AgentInfo
     public int id;
     public string name;
     public byte rarity;
-    public int energy;
+    public int cost;
     public float atk;
     public float hp;
     public float defense;
@@ -14,4 +14,5 @@ public class AgentInfo
     public int sellingpPrice;
     public int recyclingPrice;
     public string prefabName;
+    public int missRate;
 }

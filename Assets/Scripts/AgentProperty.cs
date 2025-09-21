@@ -11,7 +11,7 @@ public enum E_jingjuType
 /// <summary>
 /// 玩家对象属性类
 /// </summary>
-public class PlayerProperty : FightProperty
+public class AgentProperty : FightProperty
 {
     /// <summary>
     /// 护盾值
@@ -50,7 +50,7 @@ public class PlayerProperty : FightProperty
     /// </summary>
     public List<int> passiveSkillIDs = new List<int>();
 
-    public PlayerProperty():base()
+    public AgentProperty():base()
     {
 
     }
@@ -80,6 +80,7 @@ public class PlayerProperty : FightProperty
         sellingpPrice = agentInfo.sellingpPrice;
         recyclingPrice = agentInfo.recyclingPrice;
         rarity = agentInfo.rarity;
-        energy = agentInfo.energy;
+        energy = agentInfo.cost;
+        missRate = agentInfo.missRate;
     }
 }

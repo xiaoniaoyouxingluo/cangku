@@ -27,6 +27,14 @@ public class MusicMgr : BaseManager<MusicMgr>
     /// </summary>
     private float soundValue = 0.1f;
     /// <summary>
+    /// 背景音乐开关
+    /// </summary>
+    private bool musicOpen = true;
+    /// <summary>
+    /// 音效开关
+    /// </summary>
+    private bool soundOpen = true;
+    /// <summary>
     /// 音效是否在播放
     /// </summary>
     private bool soundIsPlay = true;
@@ -35,6 +43,10 @@ public class MusicMgr : BaseManager<MusicMgr>
     private MusicMgr() 
     {
         MonoMgr.Instance.AddFixedUpdateListener(Update);
+        bkMusicValue = GameDataMgr.Instance.musicData.musicValue;
+        musicOpen = GameDataMgr.Instance.musicData.musicOpen;
+        soundValue = GameDataMgr.Instance.musicData.soundValue;
+        soundOpen = GameDataMgr.Instance.musicData.soundOpen;
     }
 
 
@@ -58,7 +70,10 @@ public class MusicMgr : BaseManager<MusicMgr>
     }
 
 
-    //播放背景音乐
+    /// <summary>
+    /// 播放背景音乐
+    /// </summary>
+    /// <param name="name">music文件夹下的路径</param>
     public void PlayBKMusic(string name)
     {
         //动态创建播放背景音乐的组件 并且 不会过场景移除 
@@ -76,11 +91,14 @@ public class MusicMgr : BaseManager<MusicMgr>
             bkMusic.clip = (rq as ResourceRequest).asset as AudioClip;
             bkMusic.loop = true;
             bkMusic.volume = bkMusicValue;
+            bkMusic.mute = !musicOpen;
             bkMusic.Play();
         });
     }
 
-    //停止背景音乐
+    /// <summary>
+    /// 停止背景音乐
+    /// </summary>
     public void StopBKMusic()
     {
         if (bkMusic == null)
@@ -88,7 +106,9 @@ public class MusicMgr : BaseManager<MusicMgr>
         bkMusic.Stop();
     }
 
-    //暂停背景音乐
+    /// <summary>
+    /// 暂停背景音乐
+    /// </summary>
     public void PauseBKMusic()
     {
         if (bkMusic == null)
@@ -96,7 +116,10 @@ public class MusicMgr : BaseManager<MusicMgr>
         bkMusic.Pause();
     }
 
-    //设置背景音乐大小
+    /// <summary>
+    /// 设置背景音乐大小
+    /// </summary>
+    /// <param name="v">0-1的值</param>
     public void ChangeBKMusicValue(float v)
     {
         bkMusicValue = v;
@@ -127,6 +150,7 @@ public class MusicMgr : BaseManager<MusicMgr>
             source.clip = Resources.Load<AudioClip>("music" + name);
         source.loop = isLoop;
         source.volume = soundValue;
+        source.mute = !soundOpen;
         source.Play();
         //存储容器 用于记录 方便之后判断是否停止
         //由于从缓存池中取出对象 有可能取出一个之前正在使用的（超上限时）
@@ -166,6 +190,29 @@ public class MusicMgr : BaseManager<MusicMgr>
         for (int i = 0; i < soundList.Count; i++)
         {
             soundList[i].volume = v;
+        }
+    }
+    /// <summary>
+    /// 背景音乐开关
+    /// </summary>
+    /// <param name="isOpen"></param>
+    public void ChangeBKMusicOpen(bool isOpen)
+    {
+        musicOpen = isOpen;
+        if (bkMusic == null)
+            return;
+        bkMusic.mute = !isOpen;
+    }
+    /// <summary>
+    /// 音效开关
+    /// </summary>
+    /// <param name="isOpen"></param>
+    public void ChangeSoundOpen(bool isOpen)
+    {
+        soundOpen = isOpen;
+        for(int i = 0;i < soundList.Count;i++) 
+        {
+            soundList[i].mute = !isOpen;
         }
     }
 

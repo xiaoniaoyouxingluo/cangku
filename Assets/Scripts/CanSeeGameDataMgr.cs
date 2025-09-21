@@ -17,7 +17,6 @@ public class CanSeeGameDataMgr : MonoBehaviour
     void Update()
     {
         nowAgentInfos = GameDataMgr.Instance.nowAgentList;
-        historyAgentInfos = GameDataMgr.Instance.historyAgentList;    
     }
     [ContextMenu("Ë¢ÐÂ")]
     public void ss()

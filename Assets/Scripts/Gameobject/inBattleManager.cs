@@ -53,22 +53,22 @@ public class inBattleManager : MonoBehaviour
         if(pp当前选择砖块 != null && p != pp当前选择砖块)
         {
             var middle = pp当前选择砖块.此地物体;
-            if (pp当前选择砖块.Line == 1)
+            if (pp当前选择砖块.pos.x == 1)
             {
-                Line1[pp当前选择砖块.Index] = p.此地物体;
+                Line1[pp当前选择砖块.pos.y] = p.此地物体;
             }else
             {
-                Line2[pp当前选择砖块.Index] = p.此地物体;
+                Line2[pp当前选择砖块.pos.y] = p.此地物体;
             }
             pp当前选择砖块.此地物体 = p.此地物体;
             
-            if (p.Line == 1)
+            if (p.pos.x == 1)
             {
-                Line1[p.Index] = middle;
+                Line1[p.pos.y] = middle;
             }
             else
             {
-                Line2[p.Index] = middle;
+                Line2[p.pos.x] = middle;
             }
             p.此地物体 = middle;
             if(p.此地物体 != null)
@@ -125,7 +125,7 @@ public class inBattleManager : MonoBehaviour
         foreach(var a in GameDataMgr.Instance.nowAgentList)
         {
             
-            if(a.energy <= GhostNum)
+            if(a.cost <= GhostNum)
             {
                 没有能打出的牌 = false;
             }
@@ -202,13 +202,13 @@ public class inBattleManager : MonoBehaviour
             }
             var sjjd = aa可选的[Random.Range(0, aa可选的.Count)] ;
             ss.transform.SetParent(sjjd.transform);
-            if(sjjd.GetComponent<玩家可放入槽位>().Line == 1)
+            if(sjjd.GetComponent<玩家可放入槽位>().pos.x == 1)
             {
-                Line1[sjjd.GetComponent<玩家可放入槽位>().Index+2] = ss;
+                Line1[sjjd.GetComponent<玩家可放入槽位>().pos.y + 2] = ss;
             }
-            if (sjjd.GetComponent<玩家可放入槽位>().Line == 2)
+            if (sjjd.GetComponent<玩家可放入槽位>().pos.x == 2)
             {
-                Line2[sjjd.GetComponent<玩家可放入槽位>().Index+2] = ss;
+                Line2[sjjd.GetComponent<玩家可放入槽位>().pos.y +2] = ss;
             }
             ss.transform.localScale = new Vector2(1, 1);
             ss.transform.localPosition = Vector2.zero;

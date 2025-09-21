@@ -163,7 +163,9 @@ public class PoolMgr : BaseManager<PoolMgr>
     /// </summary>
     private Dictionary<string, PoolObjectBase> poolObjectDic = new Dictionary<string, PoolObjectBase>();
 
-    //池子根对象
+    /// <summary>
+    /// 池子根对象
+    /// </summary>
     private GameObject poolObj;
 
     //是否开启布局功能

@@ -100,13 +100,6 @@ public class WinPanel : MonoBehaviour
         //    }
         //}
         GameDataMgr.Instance.nowAgentList.AddRange(list);
-        foreach(var s in GameDataMgr.Instance.nowAgentList)
-        {
-            if (GameDataMgr.Instance.historyAgentList.Contains(s))
-            {
-                GameDataMgr.Instance.historyAgentList.Remove(s);
-            }
-        }
         GameDataMgr.Instance.Level++;
         SceneManager.LoadScene("ChooseRole");
     }

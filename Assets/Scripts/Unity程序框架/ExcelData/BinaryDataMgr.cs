@@ -148,7 +148,14 @@ public class BinaryDataMgr
                 MethodInfo mInfo = dicObject.GetType().GetMethod("Add");
                 //得到数据结构类对象中 指定主键字段的值
                 object keyValue = classType.GetField(keyName).GetValue(dataObj);
-                mInfo.Invoke(dicObject, new object[] { keyValue, dataObj });
+                try 
+                {
+                    mInfo.Invoke(dicObject, new object[] { keyValue, dataObj });
+                }
+                catch
+                {
+                    Debug.Log("表中主键值有重复");
+                }
             }
 
             //把读取完的表记录下来

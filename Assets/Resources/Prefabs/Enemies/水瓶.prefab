@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4297588162453250131}
-  - component: {fileID: 4297588162453250128}
   - component: {fileID: 4297588162453250129}
   - component: {fileID: 4297588162453250134}
-  - component: {fileID: 4297588162453250135}
-  - component: {fileID: 8939375987537061509}
+  - component: {fileID: 7491722971042096401}
   m_Layer: 0
   m_Name: "\u6C34\u74F6"
   m_TagString: Untagged
@@ -28,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4297588162453250132}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.01, y: 2.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -39,23 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4297588162453250128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297588162453250132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1584a34225a8aa647abbfe043c267873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  nowHealth: 0
-  isDead: 0
-  Sheild: 50
-  isHurting: 0
 --- !u!95 &4297588162453250129
 Animator:
   serializedVersion: 5
@@ -103,7 +84,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.72, y: 3.81}
   m_EdgeRadius: 0
---- !u!114 &4297588162453250135
+--- !u!114 &7491722971042096401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,41 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4297588162453250132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f9641f6fe251a42bf574bd01d9c6bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b0e858d8b3aef849816337e49788b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicDamSc: 1
-  basicShdSc: 1
-  basicHutSc: 1
-  damageScale: 1
-  sheildScale: 1
-  hurtScale: 1
-  damagePlus: 0
-  hurtPlus: 0
-  sheildPlus: 0
-  data:
-  - Name: "\u88C5\u753210"
-    Introduce: "\u53D7\u5230\u7684\u4F24\u5BB3-10"
-    times: 1
-    canBeStacked: 1
-    lasting: 1
---- !u!114 &8939375987537061509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297588162453250132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4a9eda2c21e6641853486c250bf1ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RealName: "\u6C34\u74F6"
   teamType: 0
-  cost: 10
-  Damage: 50
-  "\u521D\u59CB\u9762\u5411\u53CD\u8F6C": 0
 --- !u!1 &4297588162586935611
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,13 +190,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4297588162944566374}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Show
-          m_Mode: 1
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: showIntroduce
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 7491722971042096401}
+            m_ObjectArgumentAssemblyTypeName: AgentObj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -256,9 +206,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4297588162944566374}
-          m_TargetAssemblyTypeName: aliveObjUi, Assembly-CSharp
-          m_MethodName: Hide
+        - m_Target: {fileID: 9077303056906651700, guid: 3fb2ad6ae28b24d4aa35ba80e26c0047, type: 3}
+          m_TargetAssemblyTypeName: GamePanel, Assembly-CSharp
+          m_MethodName: HideIntroduce
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

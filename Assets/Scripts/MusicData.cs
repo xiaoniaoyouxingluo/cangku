@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class MusicData
 {
-    //背景音乐和音效的开关
+    ///背景音乐和音效的开关
     public bool musicOpen = true;
     public bool soundOpen = true;
     //背景音乐和音效的大小

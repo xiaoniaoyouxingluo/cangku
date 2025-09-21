@@ -9,7 +9,7 @@ using UnityEngine;
 public class EntityObj : MonoBehaviour
 {
     //对象属性相关
-    protected EntityProperty _property;
+    public EntityProperty _property;
 
     //父对象的Transform（模型资源依附的父物体）
     private Transform _rootTransform;

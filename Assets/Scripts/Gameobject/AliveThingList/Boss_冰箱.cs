@@ -62,13 +62,13 @@ public class Boss_冰箱 : BasicAliveThing
                 var ss = GameObjectPool.Instance.CreateGameObject(aa饮料s[i], a.transform.position);
                 var sjjd = a;
                 ss.transform.SetParent(sjjd.transform);
-                if (sjjd.GetComponent<玩家可放入槽位>().Line == 1)
+                if (sjjd.GetComponent<玩家可放入槽位>().pos.x == 1)
                 {
-                    inBattleManager.Instance.Line1[sjjd.GetComponent<玩家可放入槽位>().Index + 2] = ss;
+                    inBattleManager.Instance.Line1[sjjd.GetComponent<玩家可放入槽位>().pos.y + 2] = ss;
                 }
-                if (sjjd.GetComponent<玩家可放入槽位>().Line == 2)
+                if (sjjd.GetComponent<玩家可放入槽位>().pos.x == 2)
                 {
-                    inBattleManager.Instance.Line2[sjjd.GetComponent<玩家可放入槽位>().Index + 2] = ss;
+                    inBattleManager.Instance.Line2[sjjd.GetComponent<玩家可放入槽位>().pos.y + 2] = ss;
                 }
                 ac.此地物体 = ss;
                 ss.transform.localScale = new Vector2(1, 1);

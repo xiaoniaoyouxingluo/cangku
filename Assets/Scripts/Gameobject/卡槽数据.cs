@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class 卡槽数据 : MonoBehaviour
 {
-    //灵居名字
+    [Tooltip("灵居名字")]
     public string Name;
+    [Tooltip("费用")]
     public int Cost;
-    //关联灵居预设体
+    [Tooltip("关联灵居预设体")]
     public GameObject 物体;
-    //关联灵居数据
+    [Tooltip("关联灵居数据")]
     public AgentInfo AgentInfo;
-
 }

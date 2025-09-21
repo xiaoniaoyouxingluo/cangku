@@ -31,26 +31,6 @@ public class FightProperty : BaseObjProperty
     /// 闪避几率
     /// </summary>
     public int missRate;
-    /// <summary>
-    /// 暴击几率
-    /// </summary>
-    public int critRate;
-    /// <summary>
-    /// 抗暴几率
-    /// </summary>
-    public int reCritRate;
-    /// <summary>
-    /// 暴击伤害
-    /// </summary>
-    public int critDamage;
-    /// <summary>
-    /// 暴防伤害
-    /// </summary>
-    public int reCritDamage;
-    /// <summary>
-    /// 格挡几率
-    /// </summary>
-    public int parryRate;
 
     /// <summary>
     /// 动作音效对应关系
@@ -70,10 +50,5 @@ public class FightProperty : BaseObjProperty
         atk = 0;
         def = 0;
         missRate = 0;
-        critRate = 0;
-        reCritRate = 0;
-        critDamage = 0;
-        reCritDamage = 0;
-        parryRate = 0;
     }
 }

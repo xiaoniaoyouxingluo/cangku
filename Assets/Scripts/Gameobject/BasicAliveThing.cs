@@ -4,8 +4,14 @@ using UnityEngine;
 
 public enum TeamType
 {
-    Team1,//玩家
-    Team2//敌人
+    /// <summary>
+    /// 玩家
+    /// </summary>
+    Team1,
+    /// <summary>
+    /// 敌人
+    /// </summary>
+    Team2
 }
 /// <summary>
 /// 灵居基类
