@@ -42,13 +42,17 @@ public class AgentProperty : FightProperty
     /// </summary>
     public int energy;
     /// <summary>
+    /// 再部署时间
+    /// </summary>
+    public float redeployTime;
+    /// <summary>
     /// 主动技能ID
     /// </summary>
-    public List<int> skillIDs = new List<int>();
+    public List<string> skillIDs = new List<string>();
     /// <summary>
     /// 被动技能ID
     /// </summary>
-    public List<int> passiveSkillIDs = new List<int>();
+    public List<string> passiveSkillIDs = new List<string>();
 
     public AgentProperty():base()
     {
@@ -82,5 +86,8 @@ public class AgentProperty : FightProperty
         rarity = agentInfo.rarity;
         energy = agentInfo.cost;
         missRate = agentInfo.missRate;
+        redeployTime = agentInfo.redeployTime;
+        skillIDs = new List<string>(TextUtil.SplitStr(agentInfo.skill, 2));
+        passiveSkillIDs = new List<string>(TextUtil.SplitStr(agentInfo.passivesbuff, 2));
     }
 }

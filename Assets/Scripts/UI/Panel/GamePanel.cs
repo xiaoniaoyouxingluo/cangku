@@ -15,6 +15,8 @@ public class GamePanel : BasePanel
     // Start is called before the first frame update
     void Start()
     {
+        EventCenter.Instance.AddEventListener<TeamType>("回合开始时", 回合开始时);
+        EventCenter.Instance.AddEventListener<TeamType>("回合结束时", 回合结束时);
         AgentInfo ai;
         GameObject nc;
         for (int i = 0; i < GameDataMgr.Instance.agentList.Count; i++)//把可用槽位创建一定数量
@@ -44,7 +46,7 @@ public class GamePanel : BasePanel
             if (hit.collider != null && hit.collider.gameObject.GetComponent<玩家可放入槽位>()?.此地物体 == null)
             {
                 选中物品.transform.position = hit.collider.transform.position;
-                if (Input.GetMouseButtonDown(0))//鼠标左键部署
+                if (Input.GetMouseButtonDown(0) && !GameLevelMgr.Instance.isAtking)//鼠标左键部署
                 {
                     hit.collider.gameObject.GetComponent<玩家可放入槽位>().此地物体 = 选中物品;
                     GameSceneManager.Instance.Line1[hit.collider.gameObject.GetComponent<玩家可放入槽位>().pos.x, hit.collider.gameObject.GetComponent<玩家可放入槽位>().pos.y] = 选中物品;
@@ -74,6 +76,32 @@ public class GamePanel : BasePanel
                 data选中 = null;
             }
         }
+        for(int i = 0;i <可用槽位.Count;i++)
+        {
+            if(可用槽位[i].activeSelf)
+            {
+                可用槽位[i].transform.GetChild(2).gameObject.SetActive(可用槽位[i].GetComponent<卡槽数据>().再部署时间 > 0);
+                可用槽位[i].transform.GetChild(2).GetChild(0).GetComponent<Text>().text = 可用槽位[i].GetComponent<卡槽数据>().再部署时间.ToString();
+            }
+        }
+    }
+    private void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener<TeamType>("回合开始时", 回合开始时);
+        EventCenter.Instance.RemoveEventListener<TeamType>("回合结束时", 回合结束时);
+    }
+    private void 回合开始时(TeamType teamType)
+    {
+        GetControl<Button>("btnQuit").interactable = false;
+    }
+    private void 回合结束时(TeamType teamType)
+    {
+        for(int i = 0;i<可用槽位.Count;i++)
+        {
+            if (可用槽位[i].activeSelf && 可用槽位[i].GetComponent<卡槽数据>().再部署时间 > 0)
+                可用槽位[i].GetComponent<卡槽数据>().再部署时间 -= 0.5f;
+        }
+        GetControl<Button>("btnQuit").interactable = true;
     }
     /// <summary>
     /// 刷新部署栏
@@ -108,7 +136,7 @@ public class GamePanel : BasePanel
     }
     public void ClickBtn(卡槽数据 data)
     {
-        if (data.Cost <= GameLevelMgr.Instance.GhostNum)
+        if (data.Cost <= GameLevelMgr.Instance.GhostNum && !GameLevelMgr.Instance.isAtking && data.再部署时间 == 0)
         {
             MusicMgr.Instance.PlaySound("Sounds/UI_MoveChequers_Pick");
             选中物品 = Instantiate(data.物体);
@@ -139,5 +167,14 @@ public class GamePanel : BasePanel
     public void HideIntroduce()
     {
         UImanager.Instance.GetPanel<GamePanel>().介绍1.gameObject.SetActive(false);//隐藏介绍面板
+    }
+    protected override void ClickBtn(string btnName)
+    {
+        switch(btnName) 
+        {
+            case "btnQuit":
+                GameLevelMgr.Instance.PlayAtk();
+                break;
+        }
     }
 }

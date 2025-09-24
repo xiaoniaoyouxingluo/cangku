@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 玩家对象
@@ -29,6 +30,10 @@ public class AgentObj : FightObj
     ///</summary>
     public List<BuffObj> buffs = new List<BuffObj>();
     /// <summary>
+    /// 下一次攻击所使用的
+    /// </summary>
+    public BaseSkillModule skillModule;
+    /// <summary>
     /// 角色从配置表中读取的数据
     /// </summary>
     public AgentProperty Property
@@ -38,9 +43,34 @@ public class AgentObj : FightObj
             return _property as AgentProperty;
         }
     }
+    protected override void Awake()
+    {
+        base.Awake();
+        EventCenter.Instance.AddEventListener<TeamType>("回合开始时", 回合开始时);
+        EventCenter.Instance.AddEventListener<TeamType>("回合结束时", 回合结束时);
+    }
     protected override void Update()
     {
 
+    }
+    private void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener<TeamType>("回合开始时", 回合开始时);
+        EventCenter.Instance.RemoveEventListener<TeamType>("回合结束时", 回合结束时);
+    }
+    private void 回合开始时(TeamType teamType)
+    {
+        for(int i = 0;i<buffs.Count;i++) 
+        {
+            buffs[i].model.onHuiheStart?.Apply(buffs[i]);
+        }
+    }
+    private void 回合结束时(TeamType teamType)
+    {
+        for(int i = 0; i<buffs.Count;i++)
+        {
+            buffs[i].model.onHuiheEnd?.Apply(buffs[i]);
+        }
     }
     public override void InitObj(int id)
     {
@@ -56,7 +86,25 @@ public class AgentObj : FightObj
     /// </summary>
     public void Attack()
     {
-
+        skillModule.Apply(gameObject);
+    }
+    /// <summary>
+    /// 释放一个攻击
+    /// </summary>
+    /// <param name="index">自己是第几个攻击的，主要是为了指定下一个攻击者</param>
+    public void CastPA(int index)
+    {
+        if (GetBuffById("1001").Count == 0 && !dead)
+        {
+            skillModule = Resources.Load<BaseSkillModule>("Skill/" + Property.skillIDs[0]);
+            for (int i = 0; i < buffs.Count; i++)
+                buffs[i].model.onCast?.Apply(buffs[i], null, gameObject);
+            animator.Play("Attack");
+            if (BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound != string.Empty)
+                MusicMgr.Instance.PlaySound("Sounds/" + BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound);
+        }
+        else
+            GameLevelMgr.Instance.下一个攻击(++index);
     }
     ///<summary>
     ///重新计算所有属性，并且获得一个最终属性
@@ -64,7 +112,21 @@ public class AgentObj : FightObj
     private void AttrRecheck()
     {
         ChaProperty c = new ChaProperty(Property.maxHP, nowproperty.nowHp, Property.atk, Property.def, Property.energy, Property.missRate);
+        buffProp[0] = ChaProperty.zero;
+        buffProp[1] = ChaProperty.zero;
+        for(int i = 0; i < buffs.Count; i++) 
+        {
+            if (buffs[i].model.propMod.Length>0)
+            {
+                buffProp[0] += buffs[i].model.propMod[0] * buffs[i].stack;
+            }
+            if (buffs[i].model.propMod.Length > 1)
+            {
+                buffProp[1] += buffs[i].model.propMod[1] * buffs[i].stack;
+            }
+        }
         nowproperty = (c + buffProp[0]) * buffProp[1];
+        nowproperty.nowHp = Mathf.Min(nowproperty.nowHp, nowproperty.maxHp);
     }
     /// <summary>
     /// 判断这个角色是否会被这个damageInfo所杀
@@ -125,6 +187,14 @@ public class AgentObj : FightObj
     public void Kill()
     {
         dead = true;
+
+        for (int i = 0; i < UImanager.Instance.GetPanel<GamePanel>().可用槽位.Count; i++)
+            if (Property.name == UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().Name)//失活部署栏中的选择
+            {
+                UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].SetActive(true);
+                UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().再部署时间 = Property.redeployTime;
+            }    
+        Destroy(gameObject);
     }
     /// <summary>
     /// 为角色添加buff，当然，删除也是走这个的
@@ -176,9 +246,10 @@ public class AgentObj : FightObj
             });
             modStack = buff.addStack;
         }
-        if (toRemove == false )
+        if (toRemove == false && buff.buffModel.onOccur != null)
         {
-            buff.buffModel.onOccur?.Invoke(toAddBuff, modStack);
+            buff.buffModel.onOccur.modifyStack = modStack;
+            buff.buffModel.onOccur.Apply(toAddBuff);
         }
         AttrRecheck();
     }

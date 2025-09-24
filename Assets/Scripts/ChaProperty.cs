@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 角色当前的属性
 /// </summary>
+[System.Serializable]
 public struct ChaProperty
 {
     public static ChaProperty zero = new ChaProperty();
@@ -65,6 +66,17 @@ public struct ChaProperty
             a.def * b,
             (int)(a.energy * b),
             (int)(a.missRate * b)
+        );
+    }
+    public static ChaProperty operator *(ChaProperty a, int b)
+    {
+        return new ChaProperty(
+            a.maxHp * b,
+            a.nowHp * b,
+            a.atk * b,
+            a.def * b,
+            a.energy * b,
+            a.missRate * b
         );
     }
 }

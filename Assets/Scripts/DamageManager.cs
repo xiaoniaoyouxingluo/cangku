@@ -46,20 +46,20 @@ public class DamageManager : MonoBehaviour
             attackerAgentObj = dInfo.attacker.GetComponent<AgentObj>();
             for (int i = 0; i < attackerAgentObj.buffs.Count; i++)
             {
-                attackerAgentObj.buffs[i].model.onHit?.Invoke(attackerAgentObj.buffs[i], ref dInfo, dInfo.defender);
+                attackerAgentObj.buffs[i].model.onHit?.Apply(attackerAgentObj.buffs[i], dInfo, dInfo.defender);
             }
         }
         //遍历挨打者所有的buff.beHurt
         for (int i = 0; i < defenderAgentObj.buffs.Count; i++)
         {
-            defenderAgentObj.buffs[i].model.onBeHurt?.Invoke(defenderAgentObj.buffs[i], ref dInfo, dInfo.attacker);
+            defenderAgentObj.buffs[i].model.onBeHurt?.Apply(defenderAgentObj.buffs[i], dInfo, dInfo.attacker);
         }
         if (defenderAgentObj.CanBeKilledByDamageInfo(dInfo))//第一次判断此时DamageInfo能不能杀死受击者
         {
             //如果角色可能被杀死，就会走onBeforeKilled
             for (int i = 0; i < defenderAgentObj.buffs.Count; i++)
             {
-                defenderAgentObj.buffs[i].model.onBeforeKilled?.Invoke(defenderAgentObj.buffs[i], ref dInfo, dInfo.attacker);
+                defenderAgentObj.buffs[i].model.onBeforeKilled?.Apply(defenderAgentObj.buffs[i], dInfo, dInfo.attacker);
             }
         }
         if (defenderAgentObj.CanBeKilledByDamageInfo(dInfo))//第二次判断此时DamageInfo能不能杀死受击者
@@ -69,12 +69,12 @@ public class DamageManager : MonoBehaviour
             {
                 for (int i = 0; i < attackerAgentObj.buffs.Count; i++)
                 {
-                    attackerAgentObj.buffs[i].model.onKill?.Invoke(attackerAgentObj.buffs[i], dInfo, dInfo.defender);
+                    attackerAgentObj.buffs[i].model.onKill?.Apply(attackerAgentObj.buffs[i], dInfo, dInfo.defender);
                 }
             }
             for (int i = 0; i < defenderAgentObj.buffs.Count; i++)
             {
-                defenderAgentObj.buffs[i].model.onBeKilled?.Invoke(defenderAgentObj.buffs[i], dInfo, dInfo.attacker);
+                defenderAgentObj.buffs[i].model.onBeKilled?.Apply(defenderAgentObj.buffs[i], dInfo, dInfo.attacker);
             }
         }
         defenderAgentObj.Wound(dInfo);

@@ -15,4 +15,9 @@ public class AgentInfo
     public int recyclingPrice;
     public string prefabName;
     public int missRate;
+    public string atk_sound;
+    public string atk_effect;
+    public float redeployTime;
+    public string passivesbuff;
+    public string skill;
 }

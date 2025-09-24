@@ -9,7 +9,7 @@ public class EntityProperty
     /// <summary>
     /// 唯一ID
     /// </summary>
-    public long uID;
+    public int uID;
     /// <summary>
     /// 数据表ID
     /// </summary>

@@ -48,13 +48,15 @@ public class EventCenter: BaseManager<EventCenter>
     private EventCenter() { }
 
     /// <summary>
-    /// 触发事件 
+    /// 触发事件
     /// </summary>
+    /// <typeparam name="T">参数泛型</typeparam>
     /// <param name="eventName">事件名字</param>
+    /// <param name="info">传入的参数</param>
     public void EventTrigger<T>(string eventName, T info)
     {
         //存在关心我的人 才通知别人去处理逻辑
-        if(eventDic.ContainsKey(eventName))
+        if (eventDic.ContainsKey(eventName))
         {
             //去执行对应的逻辑
             (eventDic[eventName] as EventInfo<T>).actions?.Invoke(info);
@@ -93,7 +95,11 @@ public class EventCenter: BaseManager<EventCenter>
             eventDic.Add(eventName, new EventInfo<T>(func));
         }
     }
-
+    /// <summary>
+    /// 添加事件监听者
+    /// </summary>
+    /// <param name="eventName"></param>
+    /// <param name="func"></param>
     public void AddEventListener(string eventName, UnityAction func)
     {
         //如果已经存在关心事件的委托记录 直接添加即可
@@ -117,7 +123,11 @@ public class EventCenter: BaseManager<EventCenter>
         if (eventDic.ContainsKey(eventName))
             (eventDic[eventName] as EventInfo<T>).actions -= func;
     }
-
+    /// <summary>
+    /// 移除事件监听者
+    /// </summary>
+    /// <param name="eventName"></param>
+    /// <param name="func"></param>
     public void RemoveEventListener(string eventName, UnityAction func)
     {
         if (eventDic.ContainsKey(eventName))
