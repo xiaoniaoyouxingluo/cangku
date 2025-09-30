@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f236d682a55cc54489fe84849c7de493, type: 3}
+  m_Name: 30
+  m_EditorClassIdentifier: 
+  id: 30
+  name: "\u68D2\u7403\u4E00\u7EA7\u88AB\u52A8"
+  description: "[\u4EA1\u8BED]\uFF1A\u5BF9\u672C\u884C\u6700\u524D\u65B9\u7684\u654C\u4EBA\u9020\u621040\u70B9\u4F24\u5BB3 "
+  priority: 50
+  maxStack: 1
+  buffRemoveStackUpdate: 0
+  isShow: 0
+  tags:
+  - passiveSkill
+  propMod: []
+  stateMod:
+    canMove: 1
+    canUseSkill: 1
+  onHuiheStart: {fileID: 0}
+  onHuiheEnd: {fileID: 0}
+  onOccur: {fileID: 0}
+  onRemoved: {fileID: 0}
+  onHit: {fileID: 0}
+  onBeHurt: {fileID: 0}
+  onKill: {fileID: 0}
+  onBeKilled: {fileID: 11400000, guid: 934cba2e01770ad4da43558e6a8210fa, type: 2}
+  onBeforeKilled: {fileID: 0}
+  onCast: {fileID: 0}

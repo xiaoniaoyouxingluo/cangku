@@ -253,14 +253,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &26459353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,14 +377,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &41831532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,8 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 2
+  pos: {x: 0, y: 0}
 --- !u!61 &55585440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -940,8 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 2
+  pos: {x: 0, y: 0}
 --- !u!1 &136065871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,8 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 2
+  pos: {x: 0, y: 0}
 --- !u!61 &265418083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2723,8 +2706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 1
+  pos: {x: 0, y: 0}
 --- !u!61 &620738922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2898,14 +2880,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &726625249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,8 +3037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 0
+  pos: {x: 0, y: 0}
 --- !u!61 &737483259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3343,14 +3317,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &768697693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4535,8 +4502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 1
+  pos: {x: 0, y: 0}
 --- !u!1 &1091191657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4631,14 +4597,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1140689764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4857,14 +4816,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1170880238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5382,14 +5334,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1302475269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5546,8 +5491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 0
+  pos: {x: 0, y: 0}
 --- !u!61 &1310651705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6364,8 +6308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 3
+  pos: {x: 0, y: 0}
 --- !u!1 &1530902555
 GameObject:
   m_ObjectHideFlags: 0
@@ -6462,8 +6405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 2
+  pos: {x: 0, y: 0}
 --- !u!1 &1549583953
 GameObject:
   m_ObjectHideFlags: 0
@@ -6561,8 +6503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 1
+  pos: {x: 0, y: 0}
 --- !u!61 &1549583957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6732,14 +6673,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1573493519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7076,8 +7010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 2
-  Index: 1
+  pos: {x: 0, y: 0}
 --- !u!1 &1645025012
 GameObject:
   m_ObjectHideFlags: 0
@@ -7179,7 +7112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1647191586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7496,14 +7429,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1737499739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7681,14 +7607,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!114 &1779708156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8280,8 +8199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u6B64\u5730\u7269\u4F53": {fileID: 0}
-  Line: 1
-  Index: 3
+  pos: {x: 0, y: 0}
 --- !u!1 &1902992555
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,14 +8964,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   "\u7269\u4F53": {fileID: 0}
-  AgentInfo:
-    name: 
-    tips: 
-    sellingpPrice: 0
-    recyclingPrice: 0
-    weight: 0
-    energy: 0
-    prefabName: 
+  "\u518D\u90E8\u7F72\u65F6\u95F4": 0
 --- !u!1 &2091539302
 GameObject:
   m_ObjectHideFlags: 0
@@ -10983,7 +10894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageText: {fileID: 3378445471720390500}
-  introduce: {fileID: 3378445472713561958}
 --- !u!114 &3378445472295889877
 MonoBehaviour:
   m_ObjectHideFlags: 0

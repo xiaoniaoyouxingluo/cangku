@@ -101,9 +101,9 @@ public class DamageInfo
 }
 
 ///<summary>
-///游戏中伤害值的struct，这游戏的伤害类型包括子弹伤害（治疗）、爆破伤害（治疗）、精神伤害（治疗）3种，这两种的概念更像是类似物理伤害、金木水火土属性伤害等等这种元素伤害的概念
-///但是游戏的逻辑可能会依赖于这个伤害做一些文章，比如“受到子弹伤害减少90%”之类的
+///游戏中伤害值的struct 正数是伤害 负数是治疗
 ///</summary>
+[System.Serializable]
 public struct Damage
 {
     /// <summary>
@@ -148,9 +148,24 @@ public struct Damage
 ///</summary>
 public enum DamageInfoTag
 {
-    directDamage = 0,   //直接伤害
-    periodDamage = 1,   //间歇性伤害
-    reflectDamage = 2,  //反噬伤害
-    directHeal = 10,    //直接治疗
-    periodHeal = 11,    //间歇性治疗
+    /// <summary>
+    /// 直接伤害
+    /// </summary>
+    directDamage = 0,
+    /// <summary>
+    /// 间歇性伤害
+    /// </summary>
+    periodDamage = 1,
+    /// <summary>
+    /// 反噬伤害
+    /// </summary>
+    reflectDamage = 2,  
+    /// <summary>
+    /// 直接治疗
+    /// </summary>
+    directHeal = 10,
+    /// <summary>
+    /// 间歇性治疗
+    /// </summary>
+    periodHeal = 11,    
 }

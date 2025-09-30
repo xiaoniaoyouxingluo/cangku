@@ -95,7 +95,27 @@ public class MusicMgr : BaseManager<MusicMgr>
             bkMusic.Play();
         });
     }
-
+    /// <summary>
+    /// 播放背景音乐
+    /// </summary>
+    /// <param name="clip">播放的音频切片</param>
+    public void PlayBKMusic(AudioClip clip)
+    {
+        //动态创建播放背景音乐的组件 并且 不会过场景移除 
+        //保证背景音乐在过场景时也能播放
+        if (bkMusic == null)
+        {
+            GameObject obj = new GameObject();
+            obj.name = "BKMusic";
+            GameObject.DontDestroyOnLoad(obj);
+            bkMusic = obj.AddComponent<AudioSource>();
+        }
+        bkMusic.clip = clip;
+        bkMusic.loop = true;
+        bkMusic.volume = bkMusicValue;
+        bkMusic.mute = !musicOpen;
+        bkMusic.Play();
+    }
     /// <summary>
     /// 停止背景音乐
     /// </summary>
@@ -160,7 +180,31 @@ public class MusicMgr : BaseManager<MusicMgr>
         //传递给外部使用
         callBack?.Invoke(source);
     }
-
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="clip">播放的音频切片</param>
+    /// <param name="isLoop">是否循环</param>
+    /// <param name="callBack">加载结束后的回调</param>
+    public void PlaySound(AudioClip clip, bool isLoop = false, UnityAction<AudioSource> callBack = null)
+    {
+        //从缓存池中取出音效对象得到对应组件
+        AudioSource source = PoolMgr.Instance.GetObj("Sound/soundObj").GetComponent<AudioSource>();
+        //如果取出来的音效是之前正在使用的 我们先停止它
+        source.Stop();
+        source.clip = clip;
+        source.loop = isLoop;
+        source.volume = soundValue;
+        source.mute = !soundOpen;
+        source.Play();
+        //存储容器 用于记录 方便之后判断是否停止
+        //由于从缓存池中取出对象 有可能取出一个之前正在使用的（超上限时）
+        //所以我们需要判断 容器中没有记录再去记录 不要重复去添加即可
+        if (!soundList.Contains(source))
+            soundList.Add(source);
+        //传递给外部使用
+        callBack?.Invoke(source);
+    }
     /// <summary>
     /// 停止播放音效
     /// </summary>

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2371723622218759180}
   - component: {fileID: 8945206597992129964}
-  - component: {fileID: 746589592683997258}
   - component: {fileID: 2577277907156622174}
   - component: {fileID: 4583637196660667625}
   - component: {fileID: 7936283923852169801}
   - component: {fileID: 6401123643724832111}
+  - component: {fileID: 7000606069342073835}
   m_Layer: 0
   m_Name: OrangeLightningBall
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164264463852451592}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.191835, y: 2.7427914, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -88,25 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &746589592683997258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164264463852451592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc74f31769259a44bcc49dc8953ffbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentObj: {fileID: 0}
-  speed: 0
-  "\u65E0\u89C6\u9632\u5FA1": 0
-  "\u7A7F\u900F": 0
-  ShakeC: {x: 0, y: 0}
-  hitTX: {fileID: 5540637205405131222, guid: ae378ac4c5305ab4a8d2c72f066572a7, type: 3}
-  hitSound: LIghtningReed_Blast_Electrical
 --- !u!95 &2577277907156622174
 Animator:
   serializedVersion: 5
@@ -178,6 +159,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7000606069342073835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164264463852451592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d530949846e6184dab5c291ee9cf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model:
+    id: 
+    hitTimes: 1
+    hitTX: {fileID: 5540637205405131222, guid: ae378ac4c5305ab4a8d2c72f066572a7, type: 3}
+    hitSound: LIghtningReed_Blast_Electrical
+    onCreate: {fileID: 0}
+    onHit: {fileID: 0}
+    onRemoved: {fileID: 0}
+    hitFoe: 1
+    hitAlly: 0
+  caster: {fileID: 0}
 --- !u!1 &8892840619375309243
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,11 +92,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5939733940929365894}
   - component: {fileID: 1056059601706835494}
-  - component: {fileID: 8707791082156692416}
   - component: {fileID: 5555325534249193315}
   - component: {fileID: 2064753864119642563}
   - component: {fileID: 3049357609933989605}
   - component: {fileID: 7110179689572093069}
+  - component: {fileID: 1424762313286171697}
   m_Layer: 0
   m_Name: fanbullet
   m_TagString: Untagged
@@ -170,24 +170,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8707791082156692416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7110179689572093058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc74f31769259a44bcc49dc8953ffbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentObj: {fileID: 0}
-  speed: 0
-  "\u65E0\u89C6\u9632\u5FA1": 0
-  "\u7A7F\u900F": 0
-  ShakeC: {x: 0, y: 0}
-  hitTX: {fileID: 8235983783138138419, guid: 77132598af96ddd4e8737adf452a2fff, type: 3}
 --- !u!58 &5555325534249193315
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -251,3 +233,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &1424762313286171697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110179689572093058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d530949846e6184dab5c291ee9cf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model:
+    id: 
+    hitTimes: 3
+    hitTX: {fileID: 8235983783138138419, guid: 77132598af96ddd4e8737adf452a2fff, type: 3}
+    hitSound: 
+    onCreate: {fileID: 0}
+    onHit: {fileID: 0}
+    onRemoved: {fileID: 0}
+    hitFoe: 1
+    hitAlly: 0
+  caster: {fileID: 0}

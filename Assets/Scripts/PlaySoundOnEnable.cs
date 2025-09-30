@@ -8,7 +8,7 @@ public class PlaySoundOnEnable : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        AudioManager.Instance.PlaySoundEffectsByName(SoudnName);   
+        AudioManager.Instance.PlaySoundEffects(Resources.Load<AudioClip>("Sounds/" + SoudnName));
     }
 
     // Update is called once per frame

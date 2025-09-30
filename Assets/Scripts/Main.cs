@@ -9,6 +9,6 @@ public class Main : MonoBehaviour
     {
         //显示开始界面
         UImanager.Instance.创建面板<StartPanel>();
-        BKMusic.Instacne.PlayMusic(clips[Random.Range(0, clips.Count)]);
+        MusicMgr.Instance.PlayBKMusic(clips[Random.Range(0, clips.Count)]);
     }
 }

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b80d977c08a574888b6891fe80325a, type: 3}
+  m_Name: BuffFireBullet01
+  m_EditorClassIdentifier: 
+  modifyStack: 0
+  bullet: {fileID: 5161384547706670222, guid: f772efbc60124db4eb5b0cca867c32d5, type: 3}

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3496590314676756193}
   - component: {fileID: 7804648328673380161}
-  - component: {fileID: 1887015989310098087}
   - component: {fileID: 3722287583647578547}
   - component: {fileID: 3454320231157634564}
   - component: {fileID: 9101550968482001060}
   - component: {fileID: 5240272719084519298}
+  - component: {fileID: 9006160901498616379}
   m_Layer: 0
   m_Name: waterball
   m_TagString: Untagged
@@ -87,24 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1887015989310098087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19175553792234981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc74f31769259a44bcc49dc8953ffbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentObj: {fileID: 0}
-  speed: 0
-  "\u65E0\u89C6\u9632\u5FA1": 0
-  "\u7A7F\u900F": 0
-  ShakeC: {x: 0, y: 0}
-  hitTX: {fileID: 2891084931730994519, guid: 77430607760bb0e4eae10243b0b1b519, type: 3}
 --- !u!95 &3722287583647578547
 Animator:
   serializedVersion: 5
@@ -176,3 +158,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9006160901498616379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19175553792234981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d530949846e6184dab5c291ee9cf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model:
+    id: 
+    hitTimes: 0
+    hitTX: {fileID: 2891084931730994519, guid: 77430607760bb0e4eae10243b0b1b519, type: 3}
+    hitSound: 
+    onCreate: {fileID: 0}
+    onHit: {fileID: 0}
+    onRemoved: {fileID: 0}
+    hitFoe: 0
+    hitAlly: 0
+  caster: {fileID: 0}

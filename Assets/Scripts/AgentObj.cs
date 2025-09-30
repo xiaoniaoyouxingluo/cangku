@@ -1,3 +1,4 @@
+using DesignerScripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,14 @@ using UnityEngine.UI;
 /// </summary>
 public class AgentObj : FightObj
 {
+    /// <summary>
+    /// 角色最终的可操作性状态
+    /// </summary>
+    private ChaControlState _controlState = new ChaControlState();
+    /// <summary>
+    /// 角色最终的可操作性状态
+    /// </summary>
+    public ChaControlState controlState => _controlState;
     /// <summary>
     /// 角色当前的属性
     /// </summary>
@@ -25,6 +34,8 @@ public class AgentObj : FightObj
     /// 角色是否死亡
     /// </summary>
     public bool dead;
+
+    private List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
     ///<summary>
     ///角色身上的buff
     ///</summary>
@@ -43,15 +54,35 @@ public class AgentObj : FightObj
             return _property as AgentProperty;
         }
     }
+    public override AgentProperty GetProperty<AgentProperty>()
+    {
+        return base.GetProperty<AgentProperty>();
+    }
     protected override void Awake()
     {
         base.Awake();
         EventCenter.Instance.AddEventListener<TeamType>("回合开始时", 回合开始时);
         EventCenter.Instance.AddEventListener<TeamType>("回合结束时", 回合结束时);
     }
+    protected override void Start()
+    {
+        if (transform.GetChild(0).GetComponent<SpriteRenderer>() != null)
+            spriteRenderers.Add(transform.GetChild(0).GetComponent<SpriteRenderer>());
+        for (int i = 0; i < transform.GetChild(0).childCount; i++)
+            spriteRenderers.Add(transform.GetChild(0).GetChild(i).GetComponent<SpriteRenderer>());
+    }
     protected override void Update()
     {
+        if (dead)
+        {
+            for(int i = 0;i<spriteRenderers.Count;i++)
+            {
+                spriteRenderers[i].color -= new Color(0, 0, 0, 0.005f);
+                if (spriteRenderers[i].color.a <= 0)
+                    Destroy(gameObject);
+            }
 
+        }
     }
     private void OnDestroy()
     {
@@ -60,16 +91,54 @@ public class AgentObj : FightObj
     }
     private void 回合开始时(TeamType teamType)
     {
-        for(int i = 0;i<buffs.Count;i++) 
-        {
-            buffs[i].model.onHuiheStart?.Apply(buffs[i]);
-        }
+        if (dead == false)
+            for (int i = 0; i < buffs.Count; i++)
+            {
+                buffs[i].model.onHuiheStart?.Apply(buffs[i]);
+            }
     }
     private void 回合结束时(TeamType teamType)
     {
-        for(int i = 0; i<buffs.Count;i++)
+        if (dead == false)
         {
-            buffs[i].model.onHuiheEnd?.Apply(buffs[i]);
+            List<BuffObj> toRemove = new List<BuffObj>();//待删除的buff列表
+            for (int i = 0; i < buffs.Count; i++)
+            {
+                buffs[i].model.onHuiheEnd?.Apply(buffs[i]);
+                if (buffs[i].permanent == false)
+                    buffs[i].duration -= 0.5f;
+                buffs[i].timeElapsed += 0.5f;
+                if (buffs[i].duration <= 0)//buff持续时间结束
+                {
+                    switch(buffs[i].model.buffRemoveStackUpdate)
+                    {
+                        case BuffRemoveStackUpdate.Clear:
+                            buffs[i].model.onRemoved?.Apply(buffs[i]);
+                            toRemove.Add(buffs[i]);
+                            break;
+                        case BuffRemoveStackUpdate.Reduce:
+                            buffs[i].stack -= 1;
+                            if (buffs[i].model.onOccur != null)
+                            {
+                                buffs[i].model.onOccur.modifyStack = -1;
+                                buffs[i].model.onOccur.Apply(buffs[i]);
+                            }
+                            buffs[i].duration = buffs[i].timeElapsed;
+                            buffs[i].timeElapsed = 0;        
+                            break;
+                        case BuffRemoveStackUpdate.Half:
+                            if (buffs[i].model.onOccur != null)
+                            {
+                                buffs[i].model.onOccur.modifyStack = -Mathf.CeilToInt(buffs[i].stack);
+                                buffs[i].model.onOccur.Apply(buffs[i]);
+                            }
+                            buffs[i].stack -= Mathf.FloorToInt(buffs[i].stack);
+                            buffs[i].duration = buffs[i].timeElapsed;
+                            buffs[i].timeElapsed = 0;     
+                            break;
+                    }
+                }
+            }
         }
     }
     public override void InitObj(int id)
@@ -79,6 +148,12 @@ public class AgentObj : FightObj
         _property = new AgentProperty();
         _property.SetData(id);
         nowproperty.nowHp = Property.maxHP;
+        BuffModel buff;
+        for (int i = 0; i < Property.passiveSkillIDs.Count; i++)//添加灵居的被动buff
+        {
+            buff = Resources.Load<BuffModel>("Buff/" + Property.passiveSkillIDs[i]);
+            AddBuff(new AddBuffInfo(buff, gameObject, gameObject, 1, 1, E_duration.max, true, true));
+        }
         AttrRecheck();
     }
     /// <summary>
@@ -86,31 +161,40 @@ public class AgentObj : FightObj
     /// </summary>
     public void Attack()
     {
-        skillModule.Apply(gameObject);
+        skillModule.ApplySkill(this);
+    }
+    /// <summary>
+    /// 攻击结束返回原点
+    /// </summary>
+    public void Come()
+    {
+        skillModule.ComeMove();
     }
     /// <summary>
     /// 释放一个攻击
     /// </summary>
     /// <param name="index">自己是第几个攻击的，主要是为了指定下一个攻击者</param>
-    public void CastPA(int index)
+    public void CastPA()
     {
-        if (GetBuffById("1001").Count == 0 && !dead)
+        if (controlState.canUseSkill && !dead)
         {
             skillModule = Resources.Load<BaseSkillModule>("Skill/" + Property.skillIDs[0]);
             for (int i = 0; i < buffs.Count; i++)
                 buffs[i].model.onCast?.Apply(buffs[i], null, gameObject);
-            animator.Play("Attack");
-            if (BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound != string.Empty)
-                MusicMgr.Instance.PlaySound("Sounds/" + BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound);
+            skillModule.ApplyMove(this);
+            //animator.Play("Attack");
+            //if (BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound != string.Empty)
+            //    MusicMgr.Instance.PlaySound("Sounds/" + BinaryDataMgr.Instance.GetTable<AgentInfoContainer>().dataDic[Property.uID].atk_sound);
         }
         else
-            GameLevelMgr.Instance.下一个攻击(++index);
+            GameLevelMgr.Instance.下一个攻击();
     }
     ///<summary>
     ///重新计算所有属性，并且获得一个最终属性
     ///</summary>
     private void AttrRecheck()
     {
+        _controlState.Origin();
         ChaProperty c = new ChaProperty(Property.maxHP, nowproperty.nowHp, Property.atk, Property.def, Property.energy, Property.missRate);
         buffProp[0] = ChaProperty.zero;
         buffProp[1] = ChaProperty.zero;
@@ -124,6 +208,7 @@ public class AgentObj : FightObj
             {
                 buffProp[1] += buffs[i].model.propMod[1] * buffs[i].stack;
             }
+            _controlState += buffs[i].model.stateMod;
         }
         nowproperty = (c + buffProp[0]) * buffProp[1];
         nowproperty.nowHp = Mathf.Min(nowproperty.nowHp, nowproperty.maxHp);
@@ -187,14 +272,14 @@ public class AgentObj : FightObj
     public void Kill()
     {
         dead = true;
-
-        for (int i = 0; i < UImanager.Instance.GetPanel<GamePanel>().可用槽位.Count; i++)
-            if (Property.name == UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().Name)//失活部署栏中的选择
-            {
-                UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].SetActive(true);
-                UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().再部署时间 = Property.redeployTime;
-            }    
-        Destroy(gameObject);
+        MusicMgr.Instance.PlaySound("Sounds/Sfx_Battle_Chequers_Dead");
+        if (teamType == TeamType.Team1)
+            for (int i = 0; i < UImanager.Instance.GetPanel<GamePanel>().可用槽位.Count; i++)
+                if (Property.name == UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().Name)//失活部署栏中的选择
+                {
+                    UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].SetActive(true);
+                    UImanager.Instance.GetPanel<GamePanel>().可用槽位[i].GetComponent<卡槽数据>().再部署时间 = Property.redeployTime;
+                }
     }
     /// <summary>
     /// 为角色添加buff，当然，删除也是走这个的
@@ -203,7 +288,10 @@ public class AgentObj : FightObj
     public void AddBuff(AddBuffInfo buff)
     {
         List<GameObject> bCaster = new List<GameObject>();//负责人列表
-        if (buff.caster) bCaster.Add(buff.caster);//把buff的负责人加入列表
+        if (!buff.isCaster)
+            buff.caster = null;
+        if (buff.caster)
+            bCaster.Add(buff.caster);//把buff的负责人加入列表
         List<BuffObj> hasOnes = GetBuffById(buff.buffModel.id, bCaster);//寻找列表中id和创建者都相同的buff
         int modStack;//改变的层数
         bool toRemove = false;
@@ -219,7 +307,21 @@ public class AgentObj : FightObj
                     hasOnes[0].buffParam[kv.Key] = kv.Value;
                 };
             }
-            hasOnes[0].duration = buff.durationSetTo ? buff.duration : buff.duration + hasOnes[0].duration;//剩余时间计算
+            switch(buff.durationSetTo)//剩余时间计算
+            {
+                case E_duration.setTo:
+                    hasOnes[0].duration = buff.duration;
+                    break;
+                case E_duration.addTo:
+                    hasOnes[0].duration = buff.duration + hasOnes[0].duration;
+                    break;
+                case E_duration.max:
+                    hasOnes[0].duration = Mathf.Max(hasOnes[0].duration, buff.duration);
+                    break;
+                case E_duration.min:
+                    hasOnes[0].duration = Mathf.Min(hasOnes[0].duration, buff.duration);
+                    break;
+            }
             int afterAdd = hasOnes[0].stack;//之前的层数
             hasOnes[0].stack = Mathf.Clamp(hasOnes[0].stack + buff.addStack, 0, buff.buffModel.maxStack);//现在的层数
             modStack = hasOnes[0].stack - afterAdd;
@@ -239,6 +341,8 @@ public class AgentObj : FightObj
                 buff.permanent,
                 buff.buffParam
             );
+            if (!buff.isCaster)
+                toAddBuff.caster = null;
             buffs.Add(toAddBuff);
             buffs.Sort((a, b) =>
             {
@@ -250,6 +354,10 @@ public class AgentObj : FightObj
         {
             buff.buffModel.onOccur.modifyStack = modStack;
             buff.buffModel.onOccur.Apply(toAddBuff);
+        }
+        if(toRemove)
+        {
+            buff.buffModel.onRemoved?.Apply(toAddBuff);
         }
         AttrRecheck();
     }

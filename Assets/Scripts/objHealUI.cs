@@ -31,7 +31,7 @@ public class objHealUI : MonoBehaviour
         //transform.localScale = new Vector3((parentHM.GetComponent<BasicAliveThing>().初始面向反转 ? -1 : 1)*(parentHM.GetComponent<BasicAliveThing>().teamType == TeamType.Team1 ? 1 : -1) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
         healthText.text = Mathf.RoundToInt(agentObj.nowproperty.nowHp).ToString();//显示当前血量，会四舍五入显示整数
         Red.fillAmount = agentObj.nowproperty.nowHp / agentObj.nowproperty.maxHp;//控制血条显示的比例
-        if ((agentObj._property as AgentProperty).shield > 0)
+        if (agentObj.Property.shield > 0)
         {
             sheildGameObj.SetActive(true);
             sheildText.text = Mathf.RoundToInt(agentObj.Property.shield).ToString();//显示当前护盾值，会四舍五入显示整数

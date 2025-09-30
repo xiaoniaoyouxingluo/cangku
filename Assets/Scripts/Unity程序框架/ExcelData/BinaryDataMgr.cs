@@ -38,6 +38,7 @@ public class BinaryDataMgr
     public void InitData()
     {
         LoadTable<AgentInfoContainer, AgentInfo>();
+        LoadTable<GameLevelInfoContainer, GameLevelInfo>();
     }
 
     /// <summary>

@@ -71,177 +71,23 @@ public class BuffObj
     }
 }
 ///<summary>
-///策划填表的内容
-///</summary>
-[CreateAssetMenu(fileName ="BuffData",menuName ="我的文件/BuffData")]
-public class BuffModel:ScriptableObject
-{
-    ///<summary>
-    ///buff的id
-    ///</summary>
-    public string id;
-
-    ///<summary>
-    ///buff的名称
-    ///</summary>
-    public new string name;
-    /// <summary>
-    /// buff功能描述
-    /// </summary>
-    public string description;
-
-    ///<summary>
-    ///buff的优先级，优先级越低的buff越后面执行，这是一个非常重要的属性
-    ///比如经典的“吸收50点伤害”和“受到的伤害100%反弹给攻击者”应该反弹多少，取决于这两个buff的priority谁更高
-    ///</summary>
-    public int priority;
-
-    ///<summary>
-    ///最大层数
-    ///</summary>
-    public int maxStack;
-    /// <summary>
-    /// 是否在状态栏上显示
-    /// </summary>
-    public bool isShow;
-    ///<summary>
-    ///buff的tag
-    ///</summary>
-    public string[] tags;
-
-
-    ///<summary>
-    ///buff会给角色添加的属性，这些属性根据这个游戏设计只有2种，plus和times，所以这个数组实际上只有2维
-    ///</summary>
-    public ChaProperty[] propMod;
-    /// <summary>
-    /// 回合开始时会触发的事件
-    /// </summary>
-    public BaseBuffModule onHuiheStart;
-    /// <summary>
-    /// 回合结束时会触发的事件
-    /// </summary>
-    public BaseBuffModule onHuiheEnd;
-    ///<summary>
-    ///buff在被添加、改变层数时候触发的事件
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="modifyStack">会传递本次改变的层数</param>
-    ///</summary>
-    //public BuffOnOccur onOccur;
-    //public object[] onOccurParams;
-    /// <summary>
-    /// buff在被添加、改变层数时候触发的事件
-    /// </summary>
-    public BaseBuffModule onOccur;
-
-    ///<summary>
-    ///在这个buffObj被移除之前要做的事情，如果运行之后buffObj又不足以被删除了就会被保留
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///</summary>
-    //public BuffOnRemoved onRemoved;
-    //public object[] onRemovedParams;
-    ///<summary>
-    ///在这个buffObj被移除之前要做的事情，如果运行之后buffObj又不足以被删除了就会被保留
-    ///</summary>
-    public BaseBuffModule onRemoved;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人作为攻击者会发生的事情
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="damageInfo">这次的伤害信息</param>
-    ///<param name="target">挨打的角色对象</param>
-    ///</summary>
-    //public BuffOnHit onHit;
-    //public object[] onHitParams;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人作为攻击者会发生的事情
-    ///</summary>
-    public BaseBuffModule onHit;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人作为挨打者会发生的事情
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="damageInfo">这次的伤害信息</param>
-    ///<param name="attacker">打我的角色，当然可以是空的</param>
-    ///</summary>
-    //public BuffOnBeHurt onBeHurt;
-    //public object[] onBeHurtParams;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人作为挨打者会发生的事情
-    ///</summary>
-    public BaseBuffModule onBeHurt;
-    ///<summary>
-    ///在伤害流程中，如果击杀目标，则会触发的啥事情
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="damageInfo">这次的伤害信息</param>
-    ///<param name="target">挨打的角色对象</param>
-    ///</summary>
-    //public BuffOnKill onKill;
-    //public object[] onKillParams;
-    ///<summary>
-    ///在伤害流程中，如果击杀目标，则会触发的啥事情
-    ///</summary>
-    public BaseBuffModule onKill;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人被杀死了，会触发的事情
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="damageInfo">这次的伤害信息</param>
-    ///<param name="attacker">发起攻击造成击杀的角色对象</param>
-    ///</summary>
-    //public BuffOnBeKilled onBeKilled;
-    //public object[] onBeKilledParams;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人被杀死了，会触发的事情
-    ///</summary>
-    public BaseBuffModule onBeKilled;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人可能会被杀死，会触发的事情
-    ///<param name="buff">会传递给脚本buffObj作为参数</param>
-    ///<param name="damageInfo">这次的伤害信息</param>
-    ///<param name="attacker">发起攻击造成击杀的角色对象</param>
-    ///</summary>
-    //public BuffOnBeforeKilled onBeforeKilled;
-    //public object[] onBeforeKilledParams;
-    ///<summary>
-    ///在伤害流程中，持有这个buff的人可能会被杀死，会触发的事情
-    ///</summary>
-    public BaseBuffModule onBeforeKilled;
-    /// <summary>
-    /// 在释放技能的时候运行的buff，执行这个buff一般可以用来替换skillModule
-    /// </summary>
-    public BaseBuffModule onCast;
-    public BuffModel(string id, string name, string[] tags, int priority, int maxStack, ChaProperty[] propMod = null)
-    {
-        this.id = id;
-        this.name = name;
-        this.tags = tags;
-        this.priority = priority;
-        this.maxStack = maxStack;
-
-        this.propMod = new ChaProperty[2]{
-            ChaProperty.zero,
-            ChaProperty.zero
-        };
-        if (propMod != null)
-        {
-            for (int i = 0; i < Mathf.Min(2, propMod.Length); i++)
-            {
-                this.propMod[i] = propMod[i];
-            }
-        }
-    }
-}
-///<summary>
 ///用于添加一条buff的信息
 ///</summary>
-public struct AddBuffInfo
+[System.Serializable]
+public class AddBuffInfo
 {
     ///<summary>
     ///buff的负责人是谁，可以是null
     ///</summary>
+    [HideInInspector]
     public GameObject caster;
+    [Tooltip("是否要把负责人记录下来")]
+    public bool isCaster;
 
     ///<summary>
     ///buff要添加给谁，这个必须有
     ///</summary>
+    [HideInInspector]
     public GameObject target;
 
     ///<summary>
@@ -255,9 +101,9 @@ public struct AddBuffInfo
     public int addStack;
 
     ///<summary>
-    ///关于时间，是改变还是设置为, true代表设置为，false代表加上
+    ///关于时间，是改变还是设置为
     ///</summary>
-    public bool durationSetTo;
+    public E_duration durationSetTo;
 
     ///<summary>
     ///是否是一个永久的buff，即便=true，时间设置也是有意义的，因为时间如果被减少到0以下，即使是永久的也会被删除
@@ -265,7 +111,7 @@ public struct AddBuffInfo
     public bool permanent;
 
     ///<summary>
-    ///时间值，设置为这个值，或者加上这个值，单位：秒
+    ///时间值，单位：回合
     ///</summary>
     public float duration;
 
@@ -276,7 +122,24 @@ public struct AddBuffInfo
 
     public AddBuffInfo(
         BuffModel model, GameObject caster, GameObject target,
-        int stack, float duration, bool durationSetTo = true,
+        int stack, float duration, E_duration durationSetTo = E_duration.max,
+        bool permanent = false, bool isCaster = false,
+        Dictionary<string, object> buffParam = null
+    )
+    {
+        this.buffModel = model;
+        this.caster = caster;
+        this.target = target;
+        this.addStack = stack;
+        this.duration = duration;
+        this.durationSetTo = durationSetTo;
+        this.buffParam = buffParam;
+        this.permanent = permanent;
+        this.isCaster = isCaster;
+    }
+    public AddBuffInfo(
+        BuffModel model, GameObject caster, GameObject target,
+        int stack, float duration, E_duration durationSetTo = E_duration.max,
         bool permanent = false,
         Dictionary<string, object> buffParam = null
     )
@@ -291,7 +154,34 @@ public struct AddBuffInfo
         this.permanent = permanent;
     }
 }
-
+/// <summary>
+/// 时间叠加方式
+/// </summary>
+public enum E_duration
+{
+    setTo,//设置为
+    addTo,//相加
+    max,//取较大的时间
+    min//取较小的时间
+}
+/// <summary>
+/// buff持续时间结束时层数怎么减少
+/// </summary>
+public enum BuffRemoveStackUpdate
+{
+    /// <summary>
+    /// 层数清空
+    /// </summary>
+    Clear,
+    /// <summary>
+    /// 层数减一
+    /// </summary>
+    Reduce,
+    /// <summary>
+    /// 层数减半（向下取整）
+    /// </summary>
+    Half
+}
 public delegate void BuffOnOccur(BuffObj buff, int modifyStack);
 public delegate void BuffOnRemoved(BuffObj buff);
 public delegate void BuffOnHit(BuffObj buff, ref DamageInfo damageInfo, GameObject target);

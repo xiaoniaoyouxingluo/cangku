@@ -106,9 +106,12 @@ public class ChooseRolePanel : BasePanel
                     //进行关卡初始化
                     ao.completed += (obj) =>
                     {
-                        UImanager.Instance.删除面板<ChooseRolePanel>();
+                        MusicMgr.Instance.ClearSound();
+                        PoolMgr.Instance.ClearPool();
                         UImanager.Instance.创建面板<GamePanel>();
-                        GameLevelMgr.Instance.InitInfo();
+                        GameLevelMgr.Instance.InitInfo("0_1");
+                        UImanager.Instance.删除面板<ChooseRolePanel>();
+                        
                     };
                 }
                 return;
@@ -122,7 +125,7 @@ public class ChooseRolePanel : BasePanel
             {
                 if (GameDataMgr.Instance.agentList.Count < GameDataMgr.Instance.playerData.num)
                 {
-                    //AudioManager.Instance.PlaySoundEffectsByName("UI_PickUp");//播放音效
+                    MusicMgr.Instance.PlaySound("Sounds/UI_PickUp");//播放音效
                     button.gameObject.SetActive(false);// 添加后立即隐藏按钮
                     agent.prefabName = btnName;//设置预设体名字
                     Instantiate<GameObject>(ghostInTX, button.transform.position, Quaternion.identity, this.transform);//创建鬼魂特效

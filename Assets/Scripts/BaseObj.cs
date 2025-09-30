@@ -15,4 +15,8 @@ public class BaseObj : EntityObj
     /// 获取对象的动画组件
     /// </summary>
     public Animator animator { get => _animator;}
+    protected override void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 }

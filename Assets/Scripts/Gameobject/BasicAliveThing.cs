@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 灵居的阵营
+/// </summary>
 public enum TeamType
 {
     /// <summary>
     /// 玩家
     /// </summary>
-    Team1,
+    Team1 = 1,
     /// <summary>
     /// 敌人
     /// </summary>
-    Team2
+    Team2 = -1
 }
 /// <summary>
 /// 灵居基类

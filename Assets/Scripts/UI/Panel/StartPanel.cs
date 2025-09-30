@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEditor.EditorTools;
 /// <summary>
 /// 初始面板
 /// </summary>
@@ -15,21 +16,18 @@ public class StartPanel : BasePanel
     {
         base.Awake();
         //加一个鼠标进入控件时播放音效的事件监听
-        UImanager.AddCustomEventListener(GetControl<Button>("Button_Start"),
-            EventTriggerType.PointerEnter, OnButtonHover);
+        UImanager.AddCustomEventListener(GetControl<Button>("Button_Start"), EventTriggerType.PointerEnter, OnButtonHover);
 
-        UImanager.AddCustomEventListener(GetControl<Button>("Button_Setting"),
-            EventTriggerType.PointerEnter, OnButtonHover);
+        UImanager.AddCustomEventListener(GetControl<Button>("Button_Setting"), EventTriggerType.PointerEnter, OnButtonHover);
 
-        UImanager.AddCustomEventListener(GetControl<Button>("Button_Quit"),
-            EventTriggerType.PointerEnter, OnButtonHover);
+        UImanager.AddCustomEventListener(GetControl<Button>("Button_Quit"), EventTriggerType.PointerEnter, OnButtonHover);
 
     }
 
     private void OnButtonHover(BaseEventData data)
     {
         //我说到时候写音效
-       // AudioManager.install.PlaySoundEffects(sl);
+        MusicMgr.Instance.PlaySound(sl);
     }
 
     // 按钮点击
@@ -61,6 +59,8 @@ public class StartPanel : BasePanel
     {
         SceneMgr.Instance.LoadSceneAsyn("ChooseRole", () =>
         {
+            MusicMgr.Instance.ClearSound();
+            PoolMgr.Instance.ClearPool();
             GameDataMgr.Instance.playerData.nowHealth = 3;
             GameDataMgr.Instance.playerData.num = 4;
             GameDataMgr.Instance.playerData.startEnergy = 10;

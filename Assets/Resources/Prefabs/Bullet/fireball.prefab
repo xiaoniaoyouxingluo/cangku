@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2574394997046304078}
   - component: {fileID: 9183924362023109870}
-  - component: {fileID: 652023360725862664}
   - component: {fileID: 2347584955996240412}
   - component: {fileID: 4380948226694796715}
   - component: {fileID: 7886718443903693579}
   - component: {fileID: 6594752579088825389}
+  - component: {fileID: 6173313512384053245}
   m_Layer: 0
   m_Name: fireball
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402964541242185290}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.84, y: 2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -87,24 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &652023360725862664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402964541242185290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc74f31769259a44bcc49dc8953ffbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentObj: {fileID: 0}
-  speed: 0
-  "\u65E0\u89C6\u9632\u5FA1": 0
-  "\u7A7F\u900F": 0
-  ShakeC: {x: 0, y: 0}
-  hitTX: {fileID: 5771296154250483084, guid: 56110ec3671ab6f4bbcee13ff816e0cb, type: 3}
 --- !u!95 &2347584955996240412
 Animator:
   serializedVersion: 5
@@ -176,3 +158,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6173313512384053245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402964541242185290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d530949846e6184dab5c291ee9cf17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model:
+    id: 
+    hitTimes: 3
+    hitTX: {fileID: 5771296154250483084, guid: 56110ec3671ab6f4bbcee13ff816e0cb, type: 3}
+    hitSound: 
+    onCreate: {fileID: 0}
+    onHit: {fileID: 0}
+    onRemoved: {fileID: 0}
+    hitFoe: 1
+    hitAlly: 0
+  caster: {fileID: 0}

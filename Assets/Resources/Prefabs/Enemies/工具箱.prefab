@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7511141182117995124}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.4635897, y: 9.638103, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7511141183652153590}
   - {fileID: 7511141183123020563}
@@ -97,7 +97,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0e858d8b3aef849816337e49788b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nowproperty:
+    maxHp: 0
+    nowHp: 0
+    atk: 0
+    def: 0
+    energy: 0
+    missRate: 0
+  buffProp:
+  - maxHp: 0
+    nowHp: 0
+    atk: 0
+    def: 0
+    energy: 0
+    missRate: 0
+  - maxHp: 0
+    nowHp: 0
+    atk: 0
+    def: 0
+    energy: 0
+    missRate: 0
   teamType: 0
+  dead: 0
+  skillModule: {fileID: 0}
 --- !u!1 &7511141182120946202
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageText: {fileID: 7511141182603173339}
-  introduce: {fileID: 7511141182380330898}
 --- !u!1 &7511141182333487350
 GameObject:
   m_ObjectHideFlags: 0

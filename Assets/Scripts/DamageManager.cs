@@ -6,8 +6,8 @@ using UnityEngine;
 /// </summary>
 public class DamageManager : MonoBehaviour
 {
-    private DamageManager instance;
-    public DamageManager Instance => instance;
+    private static DamageManager instance;
+    public static DamageManager Instance => instance;
     /// <summary>
     /// 记录游戏中所有的DamageInfo
     /// </summary>
@@ -77,7 +77,7 @@ public class DamageManager : MonoBehaviour
                 defenderAgentObj.buffs[i].model.onBeKilled?.Apply(defenderAgentObj.buffs[i], dInfo, dInfo.attacker);
             }
         }
-        defenderAgentObj.Wound(dInfo);
+        defenderAgentObj.Wound(dInfo);//对血量进行增减
 
         //伤害流程走完，添加buff
         for (int i = 0; i < dInfo.addBuffs.Count; i++)
@@ -99,8 +99,16 @@ public class DamageManager : MonoBehaviour
     ///<param name="damage">基础伤害值</param>
     ///<param name="tags">伤害信息类型</param>
     ///</summary>
-    public void DoDamage(GameObject attacker, GameObject target, Damage damage, DamageInfoTag[] tags)
+    public void AddDamage(GameObject attacker, GameObject target, Damage damage, DamageInfoTag[] tags)
     {
         damageQueue.Enqueue(new DamageInfo(attacker, target, damage, tags));
+    }
+    /// <summary>
+    /// 添加一个damageInfo
+    /// </summary>
+    /// <param name="damageInfo">攻击信息</param>
+    public void AddDamage(DamageInfo damageInfo)
+    {
+        damageQueue.Enqueue(damageInfo);
     }
 }
